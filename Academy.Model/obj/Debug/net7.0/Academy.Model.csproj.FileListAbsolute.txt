@@ -1,0 +1,11 @@
+C:\Users\Mesud\source\repos\Academy\Academy.Model\bin\Debug\net7.0\Academy.Model.deps.json
+C:\Users\Mesud\source\repos\Academy\Academy.Model\bin\Debug\net7.0\Academy.Model.dll
+C:\Users\Mesud\source\repos\Academy\Academy.Model\bin\Debug\net7.0\Academy.Model.pdb
+C:\Users\Mesud\source\repos\Academy\Academy.Model\obj\Debug\net7.0\Academy.Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Mesud\source\repos\Academy\Academy.Model\obj\Debug\net7.0\Academy.Model.AssemblyInfoInputs.cache
+C:\Users\Mesud\source\repos\Academy\Academy.Model\obj\Debug\net7.0\Academy.Model.AssemblyInfo.cs
+C:\Users\Mesud\source\repos\Academy\Academy.Model\obj\Debug\net7.0\Academy.Model.csproj.CoreCompileInputs.cache
+C:\Users\Mesud\source\repos\Academy\Academy.Model\obj\Debug\net7.0\Academy.Model.dll
+C:\Users\Mesud\source\repos\Academy\Academy.Model\obj\Debug\net7.0\refint\Academy.Model.dll
+C:\Users\Mesud\source\repos\Academy\Academy.Model\obj\Debug\net7.0\Academy.Model.pdb
+C:\Users\Mesud\source\repos\Academy\Academy.Model\obj\Debug\net7.0\ref\Academy.Model.dll
