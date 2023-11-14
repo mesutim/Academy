@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "YB6ZGAI2ZA3HBtkhNN+xh39en4m5b+vFH3yee96xWSQK/7QZhi12J8LRjI4ssj0DzCShqLxWoz1M4wD9U7CHLA==",
+  "dgSpecHash": "dtR+PO11aJhFuDrBViPOb4otxV6iBClJTGJ/BA4O7T7J/g0PSaL0SCebHS7cU+XfHY+qi6+bAi40DrBb6z1rkg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.DataAccess\\Academy.DataAccess.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Mesud\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Mesud\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
+    "C:\\Users\\Mesud\\.nuget\\packages\\erikej.entityframeworkcore.dgmlbuilder\\6.0.0\\erikej.entityframeworkcore.dgmlbuilder.6.0.0.nupkg.sha512",
     "C:\\Users\\Mesud\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Mesud\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Mesud\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

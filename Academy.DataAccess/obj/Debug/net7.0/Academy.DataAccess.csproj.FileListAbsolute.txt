@@ -12,3 +12,6 @@ C:\Users\Mesud\source\repos\Academy\Academy.DataAccess\obj\Debug\net7.0\refint\A
 C:\Users\Mesud\source\repos\Academy\Academy.DataAccess\obj\Debug\net7.0\Academy.DataAccess.pdb
 C:\Users\Mesud\source\repos\Academy\Academy.DataAccess\obj\Debug\net7.0\Academy.DataAccess.genruntimeconfig.cache
 C:\Users\Mesud\source\repos\Academy\Academy.DataAccess\obj\Debug\net7.0\ref\Academy.DataAccess.dll
+C:\Users\Mesud\source\repos\Academy\Academy.DataAccess\bin\Debug\net7.0\Academy.Model.dll
+C:\Users\Mesud\source\repos\Academy\Academy.DataAccess\bin\Debug\net7.0\Academy.Model.pdb
+C:\Users\Mesud\source\repos\Academy\Academy.DataAccess\obj\Debug\net7.0\Academy.DataAccess.csproj.CopyComplete

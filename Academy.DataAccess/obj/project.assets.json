@@ -46,6 +46,18 @@
           }
         }
       },
+      "ErikEJ.EntityFrameworkCore.DgmlBuilder/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Relational": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/ErikEJ.EntityFrameworkCore.6.DgmlBuilder.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/ErikEJ.EntityFrameworkCore.6.DgmlBuilder.dll": {}
+        }
+      },
       "Humanizer.Core/2.14.1": {
         "type": "package",
         "compile": {
@@ -1053,6 +1065,16 @@
             "rid": "win"
           }
         }
+      },
+      "Academy.Model/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/Academy.Model.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Academy.Model.dll": {}
+        }
       }
     }
   },
@@ -1093,6 +1115,18 @@
         "azureicon.png",
         "lib/netstandard2.0/Azure.Identity.dll",
         "lib/netstandard2.0/Azure.Identity.xml"
+      ]
+    },
+    "ErikEJ.EntityFrameworkCore.DgmlBuilder/6.0.0": {
+      "sha512": "hY2zpLvfMrpGuakjPAE8Zp6JcMdGg3+CqN1Vvp++iy4c15SI9CY/zIjTHfyGefa0IfSgk5TGRhVvBnhopddWIg==",
+      "type": "package",
+      "path": "erikej.entityframeworkcore.dgmlbuilder/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "erikej.entityframeworkcore.dgmlbuilder.6.0.0.nupkg.sha512",
+        "erikej.entityframeworkcore.dgmlbuilder.nuspec",
+        "lib/net6.0/ErikEJ.EntityFrameworkCore.6.DgmlBuilder.dll"
       ]
     },
     "Humanizer.Core/2.14.1": {
@@ -2875,10 +2909,17 @@
         "system.windows.extensions.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "Academy.Model/1.0.0": {
+      "type": "project",
+      "path": "../Academy.Model/Academy.Model.csproj",
+      "msbuildProject": "../Academy.Model/Academy.Model.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
+      "Academy.Model >= 1.0.0",
+      "ErikEJ.EntityFrameworkCore.DgmlBuilder >= 6.0.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.13",
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.13"
     ]
@@ -2915,7 +2956,11 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.Model\\Academy.Model.csproj": {
+              "projectPath": "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.Model\\Academy.Model.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -2928,6 +2973,10 @@
       "net7.0": {
         "targetAlias": "net7.0",
         "dependencies": {
+          "ErikEJ.EntityFrameworkCore.DgmlBuilder": {
+            "target": "Package",
+            "version": "[6.0.0, )"
+          },
           "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
             "version": "[7.0.13, )"
