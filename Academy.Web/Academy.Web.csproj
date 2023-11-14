@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Academy.Core\Academy.Core.csproj" />
     <ProjectReference Include="..\Academy.DataAccess\Academy.DataAccess.csproj" />
     <ProjectReference Include="..\Academy.Model\Academy.Model.csproj" />
   </ItemGroup>

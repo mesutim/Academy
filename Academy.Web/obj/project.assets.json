@@ -1054,6 +1054,16 @@
           }
         }
       },
+      "Academy.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/Academy.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Academy.Core.dll": {}
+        }
+      },
       "Academy.DataAccess/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
@@ -2888,6 +2898,11 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "Academy.Core/1.0.0": {
+      "type": "project",
+      "path": "../Academy.Core/Academy.Core.csproj",
+      "msbuildProject": "../Academy.Core/Academy.Core.csproj"
+    },
     "Academy.DataAccess/1.0.0": {
       "type": "project",
       "path": "../Academy.DataAccess/Academy.DataAccess.csproj",
@@ -2901,6 +2916,7 @@
   },
   "projectFileDependencyGroups": {
     "net7.0": [
+      "Academy.Core >= 1.0.0",
       "Academy.DataAccess >= 1.0.0",
       "Academy.Model >= 1.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 7.0.13"
@@ -2939,6 +2955,9 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
+            "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.Core\\Academy.Core.csproj": {
+              "projectPath": "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.Core\\Academy.Core.csproj"
+            },
             "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.DataAccess\\Academy.DataAccess.csproj": {
               "projectPath": "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.DataAccess\\Academy.DataAccess.csproj"
             },

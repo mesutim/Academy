@@ -78,3 +78,5 @@ C:\Users\Mesud\source\repos\Academy\Academy.Web\bin\Debug\net7.0\runtimes\win\li
 C:\Users\Mesud\source\repos\Academy\Academy.Web\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Users\Mesud\source\repos\Academy\Academy.Web\bin\Debug\net7.0\Academy.DataAccess.dll
 C:\Users\Mesud\source\repos\Academy\Academy.Web\bin\Debug\net7.0\Academy.DataAccess.pdb
+C:\Users\Mesud\source\repos\Academy\Academy.Web\bin\Debug\net7.0\Academy.Core.dll
+C:\Users\Mesud\source\repos\Academy\Academy.Web\bin\Debug\net7.0\Academy.Core.pdb
