@@ -9,3 +9,26 @@ C:\Users\Mesud\source\repos\Academy\Academy.Core\obj\Debug\net7.0\Academy.Core.d
 C:\Users\Mesud\source\repos\Academy\Academy.Core\obj\Debug\net7.0\refint\Academy.Core.dll
 C:\Users\Mesud\source\repos\Academy\Academy.Core\obj\Debug\net7.0\Academy.Core.pdb
 C:\Users\Mesud\source\repos\Academy\Academy.Core\obj\Debug\net7.0\ref\Academy.Core.dll
+C:\Users\Mesud\source\repos\Academy\Academy.Core\obj\Debug\net7.0\Academy.Core.csproj.AssemblyReference.cache
+C:\Users\Mesud\source\repos\Academy\Academy.Core\bin\Debug\net7.0\Academy.DataAccess.dll
+C:\Users\Mesud\source\repos\Academy\Academy.Core\bin\Debug\net7.0\Academy.Model.dll
+C:\Users\Mesud\source\repos\Academy\Academy.Core\bin\Debug\net7.0\Academy.DataAccess.pdb
+C:\Users\Mesud\source\repos\Academy\Academy.Core\bin\Debug\net7.0\Academy.Model.pdb
+C:\Users\Mesud\source\repos\Academy\Academy.Core\obj\Debug\net7.0\Academy.Core.csproj.CopyComplete
+F:\git.ir\Javad AliBabaie\Resume Project\Academy\Academy.Core\bin\Debug\net7.0\Academy.Core.deps.json
+F:\git.ir\Javad AliBabaie\Resume Project\Academy\Academy.Core\bin\Debug\net7.0\Academy.Core.dll
+F:\git.ir\Javad AliBabaie\Resume Project\Academy\Academy.Core\bin\Debug\net7.0\Academy.Core.pdb
+F:\git.ir\Javad AliBabaie\Resume Project\Academy\Academy.Core\bin\Debug\net7.0\Academy.DataAccess.dll
+F:\git.ir\Javad AliBabaie\Resume Project\Academy\Academy.Core\bin\Debug\net7.0\Academy.Model.dll
+F:\git.ir\Javad AliBabaie\Resume Project\Academy\Academy.Core\bin\Debug\net7.0\Academy.DataAccess.pdb
+F:\git.ir\Javad AliBabaie\Resume Project\Academy\Academy.Core\bin\Debug\net7.0\Academy.Model.pdb
+F:\git.ir\Javad AliBabaie\Resume Project\Academy\Academy.Core\obj\Debug\net7.0\Academy.Core.csproj.AssemblyReference.cache
+F:\git.ir\Javad AliBabaie\Resume Project\Academy\Academy.Core\obj\Debug\net7.0\Academy.Core.GeneratedMSBuildEditorConfig.editorconfig
+F:\git.ir\Javad AliBabaie\Resume Project\Academy\Academy.Core\obj\Debug\net7.0\Academy.Core.AssemblyInfoInputs.cache
+F:\git.ir\Javad AliBabaie\Resume Project\Academy\Academy.Core\obj\Debug\net7.0\Academy.Core.AssemblyInfo.cs
+F:\git.ir\Javad AliBabaie\Resume Project\Academy\Academy.Core\obj\Debug\net7.0\Academy.Core.csproj.CoreCompileInputs.cache
+F:\git.ir\Javad AliBabaie\Resume Project\Academy\Academy.Core\obj\Debug\net7.0\Academy.Core.csproj.CopyComplete
+F:\git.ir\Javad AliBabaie\Resume Project\Academy\Academy.Core\obj\Debug\net7.0\Academy.Core.dll
+F:\git.ir\Javad AliBabaie\Resume Project\Academy\Academy.Core\obj\Debug\net7.0\refint\Academy.Core.dll
+F:\git.ir\Javad AliBabaie\Resume Project\Academy\Academy.Core\obj\Debug\net7.0\Academy.Core.pdb
+F:\git.ir\Javad AliBabaie\Resume Project\Academy\Academy.Core\obj\Debug\net7.0\ref\Academy.Core.dll

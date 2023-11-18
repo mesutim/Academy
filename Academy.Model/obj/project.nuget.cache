@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "c4LBODTcWRHZBNVafhFFtbeWiI64tdFU32PH8rFFZ/i9sj1L3R8nQebV8O35TA2YNvqHFxNU3S/zJtn/+oy71A==",
+  "dgSpecHash": "a7UqLhsh1vbHdUJSXR+mwu3o/rCLYJrjZcP6w9D3nxGseevkYy9jARgwucn9oWvhSent/Okxx8MpIurxnJS8iQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.Model\\Academy.Model.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "F:\\git.ir\\Javad AliBabaie\\Resume Project\\Academy\\Academy.Model\\Academy.Model.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Graphic\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
+    "C:\\Users\\Graphic\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.1\\microsoft.extensions.primitives.5.0.1.nupkg.sha512",
+    "C:\\Users\\Graphic\\.nuget\\packages\\system.io.pipelines\\5.0.2\\system.io.pipelines.5.0.2.nupkg.sha512"
+  ],
   "logs": []
 }

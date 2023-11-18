@@ -1,0 +1,41 @@
+﻿using Academy.Model.Models.IdentityModels;
+using Microsoft.AspNetCore.Http;
+using System.ComponentModel.DataAnnotations;
+
+namespace Academy.Model.ViewModels
+{
+    public class UserForAdminViewModel
+    {
+        public List<UserInfoForAdminViewModel> Users { get; set; }
+        public int CurrentPage { get; set; }
+        public int PageCount { get; set; }
+    }
+
+    public class UserInfoForAdminViewModel
+    {
+        [Key]
+        public int UserId { get; set; }
+
+
+        [Display(Name = "نام کاربری")]
+        [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
+        [MaxLength(200, ErrorMessage = "{0} نمی تواند بیشتر از {1} کارکتر باشد")]
+        public string UserName { get; set; }
+
+
+        [Display(Name = "ایمیل")]
+        [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
+        [MaxLength(200, ErrorMessage = "{0} نمی تواند بیشتر از {1} کارکتر باشد")]
+        [EmailAddress(ErrorMessage = "ایمیل وارد شده معتبر نمی باشد")]
+        public string Email { get; set; }
+
+
+        [Display(Name = "وضعیت")]
+        public bool IsActive { get; set; }
+
+
+        [Display(Name = "تاریخ ثبت نام")]
+        public DateTime RegisterDate { get; set; }
+    }
+
+}

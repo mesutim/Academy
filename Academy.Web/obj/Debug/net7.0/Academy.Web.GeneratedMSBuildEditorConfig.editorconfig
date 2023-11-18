@@ -9,77 +9,97 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Academy.Web
 build_property.RootNamespace = Academy.Web
-build_property.ProjectDir = C:\Users\Mesud\source\repos\Academy\Academy.Web\
+build_property.ProjectDir = F:\git.ir\Javad AliBabaie\Resume Project\Academy\Academy.Web\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Mesud\source\repos\Academy\Academy.Web
+build_property.MSBuildProjectDirectory = F:\git.ir\Javad AliBabaie\Resume Project\Academy\Academy.Web
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Mesud/source/repos/Academy/Academy.Web/Areas/Admin/Views/Home/Index.cshtml]
+[F:/git.ir/Javad AliBabaie/Resume Project/Academy/Academy.Web/Areas/Admin/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mesud/source/repos/Academy/Academy.Web/Areas/Admin/Views/Shared/_AdminLayout.cshtml]
+[F:/git.ir/Javad AliBabaie/Resume Project/Academy/Academy.Web/Areas/Admin/Views/Role/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUm9sZVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/git.ir/Javad AliBabaie/Resume Project/Academy/Academy.Web/Areas/Admin/Views/Role/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUm9sZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/git.ir/Javad AliBabaie/Resume Project/Academy/Academy.Web/Areas/Admin/Views/Shared/_AdminLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9BZG1pbkxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mesud/source/repos/Academy/Academy.Web/Areas/Admin/Views/Shared/_AdminScripts.cshtml]
+[F:/git.ir/Javad AliBabaie/Resume Project/Academy/Academy.Web/Areas/Admin/Views/Shared/_AdminScripts.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9BZG1pblNjcmlwdHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mesud/source/repos/Academy/Academy.Web/Areas/Admin/Views/Shared/_AdminStyles.cshtml]
+[F:/git.ir/Javad AliBabaie/Resume Project/Academy/Academy.Web/Areas/Admin/Views/Shared/_AdminStyles.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9BZG1pblN0eWxlcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mesud/source/repos/Academy/Academy.Web/Areas/Admin/_ViewImports.cshtml]
+[F:/git.ir/Javad AliBabaie/Resume Project/Academy/Academy.Web/Areas/Admin/Views/Shared/_Notification.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9Ob3RpZmljYXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/git.ir/Javad AliBabaie/Resume Project/Academy/Academy.Web/Areas/Admin/Views/User/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXNlclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/git.ir/Javad AliBabaie/Resume Project/Academy/Academy.Web/Areas/Admin/Views/User/Upsert.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXNlclxVcHNlcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/git.ir/Javad AliBabaie/Resume Project/Academy/Academy.Web/Areas/Admin/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mesud/source/repos/Academy/Academy.Web/Areas/Admin/_ViewStart.cshtml]
+[F:/git.ir/Javad AliBabaie/Resume Project/Academy/Academy.Web/Areas/Admin/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mesud/source/repos/Academy/Academy.Web/Views/Home/Index.cshtml]
+[F:/git.ir/Javad AliBabaie/Resume Project/Academy/Academy.Web/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mesud/source/repos/Academy/Academy.Web/Views/Home/Privacy.cshtml]
+[F:/git.ir/Javad AliBabaie/Resume Project/Academy/Academy.Web/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mesud/source/repos/Academy/Academy.Web/Views/Shared/Error.cshtml]
+[F:/git.ir/Javad AliBabaie/Resume Project/Academy/Academy.Web/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mesud/source/repos/Academy/Academy.Web/Views/Shared/_Footer.cshtml]
+[F:/git.ir/Javad AliBabaie/Resume Project/Academy/Academy.Web/Views/Shared/_Footer.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Gb290ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mesud/source/repos/Academy/Academy.Web/Views/Shared/_MainMenu.cshtml]
+[F:/git.ir/Javad AliBabaie/Resume Project/Academy/Academy.Web/Views/Shared/_MainMenu.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9NYWluTWVudS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mesud/source/repos/Academy/Academy.Web/Views/Shared/_MetaTags.cshtml]
+[F:/git.ir/Javad AliBabaie/Resume Project/Academy/Academy.Web/Views/Shared/_MetaTags.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9NZXRhVGFncy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mesud/source/repos/Academy/Academy.Web/Views/Shared/_Styles.cshtml]
+[F:/git.ir/Javad AliBabaie/Resume Project/Academy/Academy.Web/Views/Shared/_Styles.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9TdHlsZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mesud/source/repos/Academy/Academy.Web/Views/Shared/_ValidationScriptsPartial.cshtml]
+[F:/git.ir/Javad AliBabaie/Resume Project/Academy/Academy.Web/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mesud/source/repos/Academy/Academy.Web/Views/_ViewImports.cshtml]
+[F:/git.ir/Javad AliBabaie/Resume Project/Academy/Academy.Web/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mesud/source/repos/Academy/Academy.Web/Views/_ViewStart.cshtml]
+[F:/git.ir/Javad AliBabaie/Resume Project/Academy/Academy.Web/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mesud/source/repos/Academy/Academy.Web/Views/Shared/_Layout.cshtml]
+[F:/git.ir/Javad AliBabaie/Resume Project/Academy/Academy.Web/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-h246ka9jrq

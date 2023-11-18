@@ -15,3 +15,20 @@ C:\Users\Mesud\source\repos\Academy\Academy.DataAccess\obj\Debug\net7.0\refint\A
 C:\Users\Mesud\source\repos\Academy\Academy.DataAccess\obj\Debug\net7.0\Academy.DataAccess.pdb
 C:\Users\Mesud\source\repos\Academy\Academy.DataAccess\obj\Debug\net7.0\Academy.DataAccess.genruntimeconfig.cache
 C:\Users\Mesud\source\repos\Academy\Academy.DataAccess\obj\Debug\net7.0\ref\Academy.DataAccess.dll
+F:\git.ir\Javad AliBabaie\Resume Project\Academy\Academy.DataAccess\bin\Debug\net7.0\Academy.DataAccess.deps.json
+F:\git.ir\Javad AliBabaie\Resume Project\Academy\Academy.DataAccess\bin\Debug\net7.0\Academy.DataAccess.runtimeconfig.json
+F:\git.ir\Javad AliBabaie\Resume Project\Academy\Academy.DataAccess\bin\Debug\net7.0\Academy.DataAccess.dll
+F:\git.ir\Javad AliBabaie\Resume Project\Academy\Academy.DataAccess\bin\Debug\net7.0\Academy.DataAccess.pdb
+F:\git.ir\Javad AliBabaie\Resume Project\Academy\Academy.DataAccess\bin\Debug\net7.0\Academy.Model.dll
+F:\git.ir\Javad AliBabaie\Resume Project\Academy\Academy.DataAccess\bin\Debug\net7.0\Academy.Model.pdb
+F:\git.ir\Javad AliBabaie\Resume Project\Academy\Academy.DataAccess\obj\Debug\net7.0\Academy.DataAccess.csproj.AssemblyReference.cache
+F:\git.ir\Javad AliBabaie\Resume Project\Academy\Academy.DataAccess\obj\Debug\net7.0\Academy.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+F:\git.ir\Javad AliBabaie\Resume Project\Academy\Academy.DataAccess\obj\Debug\net7.0\Academy.DataAccess.AssemblyInfoInputs.cache
+F:\git.ir\Javad AliBabaie\Resume Project\Academy\Academy.DataAccess\obj\Debug\net7.0\Academy.DataAccess.AssemblyInfo.cs
+F:\git.ir\Javad AliBabaie\Resume Project\Academy\Academy.DataAccess\obj\Debug\net7.0\Academy.DataAccess.csproj.CoreCompileInputs.cache
+F:\git.ir\Javad AliBabaie\Resume Project\Academy\Academy.DataAccess\obj\Debug\net7.0\Academy.DataAccess.csproj.CopyComplete
+F:\git.ir\Javad AliBabaie\Resume Project\Academy\Academy.DataAccess\obj\Debug\net7.0\Academy.DataAccess.dll
+F:\git.ir\Javad AliBabaie\Resume Project\Academy\Academy.DataAccess\obj\Debug\net7.0\refint\Academy.DataAccess.dll
+F:\git.ir\Javad AliBabaie\Resume Project\Academy\Academy.DataAccess\obj\Debug\net7.0\Academy.DataAccess.pdb
+F:\git.ir\Javad AliBabaie\Resume Project\Academy\Academy.DataAccess\obj\Debug\net7.0\Academy.DataAccess.genruntimeconfig.cache
+F:\git.ir\Javad AliBabaie\Resume Project\Academy\Academy.DataAccess\obj\Debug\net7.0\ref\Academy.DataAccess.dll
