@@ -58,5 +58,59 @@ namespace Academy.Core.Services
             _context.Update(user);
             _context.SaveChanges();
         }
+
+        public DeleteUsersForAdminViewModel GetDeletedUsers(int pageId = 1, int showCount = 1, string filterEmail = "", string filterUserName = "")
+        {
+            IQueryable<User> result = _context.Users.IgnoreQueryFilters().Where(u => u.IsDelete == true);
+            if (!string.IsNullOrEmpty(filterEmail))
+                result = result.Where(u => u.Email.Contains(filterEmail));
+            if (!string.IsNullOrEmpty(filterUserName))
+                result = result.Where(u => u.UserName.Contains(filterUserName));
+            //Show Item in page
+            int take = showCount;
+            int skip = (pageId - 1) * take;
+
+            DeleteUsersForAdminViewModel list = new DeleteUsersForAdminViewModel();
+            list.CurrentPage = pageId;
+            list.PageCount = result.Count() / take;
+            list.Users = result.OrderBy(u => u.RegisterDate).Skip(skip).Take(take)
+                .Select(u => new UserInfoForAdminViewModel()
+                {
+                    UserId = u.UserId,
+                    UserName = u.UserName,
+                    Email = u.Email,
+                    IsActive = u.IsActive,
+                    RegisterDate = u.RegisterDate
+                })
+                .ToList();
+
+            return list;
+        }
+
+        public DeletedUserInformationViewModel GetDeleteUserInformation(int userId)
+        {
+            var user = _context.Users
+                .IgnoreQueryFilters()
+                .Where(u => u.IsDelete == true)
+                .SingleOrDefault(u => u.UserId == userId);
+            DeletedUserInformationViewModel information = new DeletedUserInformationViewModel();
+            information.UserId = userId;
+            information.UserName = user.UserName;
+            information.Email = user.Email;
+            information.RegisterDate = user.RegisterDate;
+            //information.Wallet = BalanceUserWallet(user.UserName);
+
+            return information;
+        }
+
+        public void RecoverUser(int userId)
+        {
+            User user = _context.Users
+                .IgnoreQueryFilters()
+                .Where(u => u.IsDelete == true)
+                .SingleOrDefault(u => u.UserId == userId);
+            user.IsDelete = false;
+            UpdateUser(user);
+        }
     }
 }

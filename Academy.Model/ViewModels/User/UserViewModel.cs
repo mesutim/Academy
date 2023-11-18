@@ -11,6 +11,15 @@ namespace Academy.Model.ViewModels
         public int PageCount { get; set; }
     }
 
+    public class DeleteUsersForAdminViewModel
+    {
+        public List<UserInfoForAdminViewModel> Users { get; set; }
+        public int CurrentPage { get; set; }
+        public int PageCount { get; set; }
+        //public int ShowCount { get; set; }
+
+    }
+
     public class UserInfoForAdminViewModel
     {
         [Key]
@@ -36,6 +45,15 @@ namespace Academy.Model.ViewModels
 
         [Display(Name = "تاریخ ثبت نام")]
         public DateTime RegisterDate { get; set; }
+    }
+
+    public class DeletedUserInformationViewModel
+    {
+        public int UserId { get; set; }
+        public string? UserName { get; set; }
+        public string? Email { get; set; }
+        public DateTime RegisterDate { get; set; }
+        //public int? Wallet { get; set; }
     }
 
 }

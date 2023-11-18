@@ -1,23 +1,24 @@
-﻿@using Academy.Model.Models.IdentityModels
-@model Academy.Model.Models.IdentityModels.Role;
+﻿@model Academy.Model.Models.IdentityModels.Role
+@using Academy.Model.Models.IdentityModels
 @{
-    List<Permission> permissions = ViewData["Permission"] as List<Permission>;
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    List<Permission> permissions = ViewData["Permission"] as List<Permission>;
+    List<int> selectedPermission = ViewData["SelectedPermission"] as List<int>;
 }
-<!-- /.col-lg-12 -->
 
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">افزودن نقش</h1>
+        <h1 class="page-header">ویرایش نقش </h1>
     </div>
 </div>
 <!-- /.col-lg-12 -->
 <div class="row">
     <form method="post">
         <div class="col-md-8">
+            <input type="hidden" asp-for="@Model.RoleId" class="form-control" />
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    نقش جدید
+                    ویرایش نقش @Model.RoleTitle
                 </div>
                 <div class="panel-body">
                     <div class="form-group">
@@ -25,13 +26,13 @@
                         <input type="text" asp-for="@Model.RoleTitle" class="form-control" />
                     </div>
 
-                    <input type="submit" value="ذخیره اطلاعات" class="btn btn-success" />
+                    <input type="submit" value="ویرایش اطلاعات" class="btn btn-warning" />
                     <a class="btn btn-danger" asp asp-action="Index">بازگشت به لیست</a>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
-            <div class="panel panel-primary">
+            <div class="panel panel-default">
                 <div class="panel-heading">
                     دسترسی های نقش
                 </div>
@@ -40,21 +41,27 @@
                         @foreach (var permission in permissions.Where(p => p.ParentID == null))
                         {
                             <li>
-                                <input type="checkbox" name="SelectedPermission" value="@permission.PermissionId" /> @permission.PermissionTitle
+                                <input type="checkbox" name="SelectedPermission"
+                                @((selectedPermission.Any(p => p == permission.PermissionId) ? "checked" : ""))
+                                       value="@permission.PermissionId" /> @permission.PermissionTitle
                                 @if (permissions.Any(p => p.ParentID == permission.PermissionId))
                                 {
                                     <ul>
                                         @foreach (var sub in permissions.Where(p => p.ParentID == permission.PermissionId))
                                         {
                                             <li>
-                                                <input type="checkbox" name="SelectedPermission" value="@sub.PermissionId" /> @sub.PermissionTitle
+                                                <input type="checkbox" name="SelectedPermission"
+                                                @((selectedPermission.Any(p => p == sub.PermissionId) ? "checked" : ""))
+                                                       value="@sub.PermissionId" /> @sub.PermissionTitle
                                                 @if (permissions.Any(p => p.ParentID == sub.PermissionId))
                                                 {
                                                     <ul>
                                                         @foreach (var sub2 in permissions.Where(p => p.ParentID == sub.PermissionId))
                                                         {
                                                             <li>
-                                                                <input type="checkbox" name="SelectedPermission" value="@sub2.PermissionId" /> @sub2.PermissionTitle
+                                                                <input type="checkbox" name="SelectedPermission"
+                                                                @((selectedPermission.Any(p => p == sub2.PermissionId) ? "checked" : ""))
+                                                                       value="@sub2.PermissionId" /> @sub2.PermissionTitle
                                                             </li>
                                                         }
                                                     </ul>
@@ -68,10 +75,13 @@
                         }
 
                     </ul>
+
                 </div>
             </div>
         </div>
 
     </form>
 </div>
+
+
 

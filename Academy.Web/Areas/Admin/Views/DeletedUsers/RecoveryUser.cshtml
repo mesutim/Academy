@@ -1,0 +1,37 @@
+﻿@model Academy.Model.ViewModels.DeletedUserInformationViewModel
+@using Academy.Core.Convertors
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-md-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            بازیابی کاربر
+        </div>
+        <div class="panel-body">
+            <form method="post">
+                <input type="hidden" name="UserId" value="@Model.UserId" />
+
+                <dl class="dl-horizontal">
+                    <dt>نام کاربری : </dt>
+                    <dd>@Model.UserName</dd>
+                    <dt>ایمیل : </dt>
+                    <dd>@Model.Email</dd>
+                    @*<dt>موجودی کیف پول  : </dt>
+                    <dd>@Model.InformationUserViewModel.Wallet</dd>*@
+                    <dt>تاریخ عضویت : </dt>
+                    <dd>@Model.RegisterDate.ToShamsi()</dd>
+                    <dt></dt>
+                    <dd>
+                        <input type="submit" value="بازیابی" class="btn btn-success" />
+                        <a asp-action="Index" class="btn btn-danger">بازگشت</a>
+                    </dd>
+                </dl>
+            </form>
+        </div>
+        <!-- /.panel-body -->
+    </div>
+    <!-- /.panel -->
+</div>
+

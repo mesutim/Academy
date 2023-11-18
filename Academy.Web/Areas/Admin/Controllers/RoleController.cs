@@ -10,9 +10,6 @@ namespace Academy.Web.Areas.Admin.Controllers
     [Area("Admin")]
     public class RoleController : Controller
     {
-        [BindProperty]
-        public Role Role { get; set; }
-
         private IPermissionService _permissionService;
         public RoleController(IPermissionService permissionService)
         {
@@ -31,16 +28,40 @@ namespace Academy.Web.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(List<int> SelectedPermission)
+        public IActionResult Create(Role role, List<int> SelectedPermission)
         {
             if (!ModelState.IsValid)
             {
                 return View();
             }
 
-            Role.IsDelete = false;
-            int roleId = _permissionService.AddRole(Role);
+            role.IsDelete = false;
+            int roleId = _permissionService.AddRole(role);
             _permissionService.AddPermissionsToRole(roleId, SelectedPermission);
+            TempData["success"] = $"نقش {role.RoleTitle} با موفقیت ایجاد شد";
+            return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult Edit(int id)
+        {
+            ViewData["Permission"] = _permissionService.GetAllPermission();
+            ViewData["SelectedPermission"] = _permissionService.PermissionsRole(id);
+            Role role = _permissionService.GetRoleById(id);
+            return View(role);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Role role, List<int> SelectedPermission)
+        {
+            if (!ModelState.IsValid)
+            {
+                ViewData["Permission"] = _permissionService.GetAllPermission();
+                ViewData["SelectedPermission"] = SelectedPermission;
+                return View(role);
+            }
+            _permissionService.UpdateRole(role);
+
+            _permissionService.UpdatePermissionsRole(role.RoleId, SelectedPermission);
 
             return RedirectToAction(nameof(Index));
         }
@@ -52,7 +73,7 @@ namespace Academy.Web.Areas.Admin.Controllers
         {
             Role role = _permissionService.GetRoleById(roleID);
             _permissionService.DeleteRole(role);
-            return Json(new { success = true, message = "Delete Successful" });
+            return Json(new { success = true, message = $"نقش {role.RoleTitle} با موفقیت حذف شد." });
         }
         #endregion
     }

@@ -9,5 +9,8 @@ namespace Academy.Core.Services.Interfaces
         void DeleteUser(int userId);
         User GetUserById(int userId);
         void UpdateUser(User user);
+        DeleteUsersForAdminViewModel GetDeletedUsers(int pageId = 1, int showCount = 1, string filterEmail = "", string filterUserName = "");
+        DeletedUserInformationViewModel GetDeleteUserInformation(int userId);
+        void RecoverUser(int userId);
     }
 }

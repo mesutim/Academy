@@ -55,5 +55,26 @@ namespace Academy.Core.Services
 
             _context.SaveChanges();
         }
+
+        public List<int> PermissionsRole(int roleId)
+        {
+            return _context.RolePermissionMap
+                .Where(r => r.RoleId == roleId)
+                .Select(r => r.PermissionId).ToList();
+        }
+
+        public void UpdateRole(Role role)
+        {
+            _context.Update(role);
+            _context.SaveChanges();
+        }
+
+        public void UpdatePermissionsRole(int roleId, List<int> permissions)
+        {
+            _context.RolePermissionMap.Where(p => p.RoleId == roleId)
+                .ToList().ForEach(p => _context.RolePermissionMap.Remove(p));
+
+            AddPermissionsToRole(roleId, permissions);
+        }
     }
 }

@@ -37,7 +37,7 @@
                                         <td>@user.RoleTitle</td>
 
                                         <td>
-                                            <a href="/Admin/Role/Upsert/roleID=@user.RoleId" class="btn btn-warning btn-sm">ویرایش</a>
+                                            <a asp-asp-controller="Role" asp-action="Edit" asp-route-id="@user.RoleId" class="btn btn-warning btn-sm">ویرایش</a>
                                             <a onClick=Delete('/Admin/Role/Delete?roleID=@user.RoleId') class="btn btn-danger btn-sm"><i class="bi bi-trash-fill"></i>حذف</a>
                                         </td>
                                     </tr>
