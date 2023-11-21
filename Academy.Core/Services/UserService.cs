@@ -1,4 +1,6 @@
-﻿using Academy.Core.Services.Interfaces;
+﻿using Academy.Core.Generator;
+using Academy.Core.Security;
+using Academy.Core.Services.Interfaces;
 using Academy.DataAccess.Context;
 using Academy.Model.Models.IdentityModels;
 using Academy.Model.ViewModels;
@@ -111,6 +113,89 @@ namespace Academy.Core.Services
                 .SingleOrDefault(u => u.UserId == userId);
             user.IsDelete = false;
             UpdateUser(user);
+        }
+
+        public int AddUserFromAdmin(CreateUserViewModel user)
+        {
+            User adduser = new User();
+            adduser.UserName = user.UserName;
+            adduser.Email = user.Email;
+            adduser.Password = PasswordHelper.EncodePasswordMd5(user.Password);
+            adduser.ActiveCode = NameGenerator.GenerateUniqCode();
+            adduser.IsActive = true;
+            adduser.RegisterDate = DateTime.Now;
+
+            #region Save Avatar
+
+            if (user.UserAvatar != null)
+            {
+                string imagePath = "";
+                adduser.UserAvatar = NameGenerator.GenerateUniqCode() + Path.GetExtension(user.UserAvatar.FileName);
+                imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/UserAvatar/", adduser.UserAvatar);
+                using (var stream = new FileStream(imagePath, FileMode.Create))
+                {
+                    user.UserAvatar.CopyTo(stream);
+                }
+
+            }
+
+            #endregion
+
+            return AddUser(adduser);
+        }
+
+        public int AddUser(User user)
+        {
+            _context.Users.Add(user);
+            _context.SaveChanges();
+            return user.UserId;
+        }
+
+        public EditUserViewModel GetUserForShowInEditMode(int userId)
+        {
+            return _context.Users.Where(u => u.UserId == userId)
+                .Select(u => new EditUserViewModel()
+                {
+                    UserId = u.UserId,
+                    AvatarName = u.UserAvatar,
+                    Email = u.Email,
+                    UserName = u.UserName,
+                    UserRoles = u.UserRoles.Select(r => r.RoleId).ToList()
+                }).Single();
+        }
+
+        public void EditUserFromAdmin(EditUserViewModel editUser)
+        {
+            User user = GetUserById(editUser.UserId);
+            user.Email = editUser.Email;
+            if (!string.IsNullOrEmpty(editUser.Password))
+            {
+                user.Password = PasswordHelper.EncodePasswordMd5(editUser.Password);
+            }
+
+            if (editUser.UserAvatar != null)
+            {
+                //Delete old Image
+                if (editUser.AvatarName != "Defult.jpg")
+                {
+                    string deletePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/UserAvatar", editUser.AvatarName);
+                    if (File.Exists(deletePath))
+                    {
+                        File.Delete(deletePath);
+                    }
+                }
+
+                //Save New Image
+                user.UserAvatar = NameGenerator.GenerateUniqCode() + Path.GetExtension(editUser.UserAvatar.FileName);
+                string imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/UserAvatar", user.UserAvatar);
+                using (var stream = new FileStream(imagePath, FileMode.Create))
+                {
+                    editUser.UserAvatar.CopyTo(stream);
+                }
+            }
+
+            _context.Users.Update(user);
+            _context.SaveChanges();
         }
     }
 }

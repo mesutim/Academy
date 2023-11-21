@@ -23,6 +23,8 @@
   <ItemGroup>
     <Folder Include="Areas\User\Controllers\" />
     <Folder Include="Areas\User\Views\" />
+    <Folder Include="wwwroot\CourseFiles\Demo\" />
+    <Folder Include="wwwroot\CourseFiles\Episode\" />
   </ItemGroup>
 
 </Project>

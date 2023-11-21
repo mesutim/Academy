@@ -76,5 +76,28 @@ namespace Academy.Core.Services
 
             AddPermissionsToRole(roleId, permissions);
         }
+
+        public void AddRolesToUser(int userId, List<int> roleIds)
+        {
+            foreach (int roleId in roleIds)
+            {
+                _context.UserRoleMap.Add(new UserRole()
+                {
+                    RoleId = roleId,
+                    UserId = userId
+                });
+            }
+
+            _context.SaveChanges();
+        }
+
+        public void EditRolesUser(int userId, List<int> rolesId)
+        {
+            //Delete All Roles User
+            _context.UserRoleMap.Where(r => r.UserId == userId).ToList().ForEach(r => _context.UserRoleMap.Remove(r));
+
+            //Add New Roles
+            AddRolesToUser(userId, rolesId);
+        }
     }
 }

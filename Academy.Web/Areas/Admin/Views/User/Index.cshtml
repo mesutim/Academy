@@ -23,7 +23,7 @@
                 <div class="table-responsive">
                     <div id="dataTables-example_wrapper" class="dataTables_wrapper form-inline" role="grid">
                         <div class="col-md-12" style="margin: 10px 0;">
-                            <a asp-area="Admin" asp-controller="Upsert" class="btn btn-outline btn-success">افزودن کاربر جدید</a>
+                            <a asp-area="Admin" asp-controller="User" asp-action="Create" class="btn btn-outline btn-success">افزودن کاربر جدید</a>
                         </div>
                         <div class="row">
                             <form>
@@ -83,7 +83,7 @@
                                         </td>
                                         <td>@user.RegisterDate.ToShamsi()</td>
                                         <td>
-                                            <a asp-area="Admin" asp-controller="User" asp-action="Upsert" asp-route-UserId="@user.UserId" class="btn btn-warning btn-sm">
+                                            <a asp-area="Admin" asp-controller="User" asp-action="Edit" asp-route-userId="@user.UserId" class="btn btn-warning btn-sm">
                                                 <i class="bi bi-pencil-square"></i>ویرایش
                                             </a>
                                             <a onClick=Delete('/Admin/User/Delete?UserID=@user.UserId') class="btn btn-danger btn-sm"><i class="bi bi-trash-fill"></i>حذف</a>

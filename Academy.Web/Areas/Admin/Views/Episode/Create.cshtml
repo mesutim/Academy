@@ -1,0 +1,52 @@
+﻿@model CourseEpisode
+@using Academy.Model.Models.CourseModels
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <form method="post" enctype="multipart/form-data">
+        <input type="hidden" asp-for="@Model.CourseId" />
+        <div class="col-md-12">
+            <h2>اطلاعات دوره</h2>
+            <hr />
+            <div class="form-group">
+                <label>عنوان بخش</label>
+                <input type="text" asp-for="@Model.EpisodeTitle" class="form-control">
+                <span asp-validation-for="@Model.EpisodeTitle"></span>
+            </div>
+            <div class="form-group">
+                <label>زمان بخش</label>
+                <input type="text" asp-for="@Model.EpisodeTime" class="form-control">
+                <span asp-validation-for="@Model.EpisodeTime"></span>
+            </div>
+            <div class="form-group">
+                <label>فایل بخش</label>
+                <input type="file" name="fileEpisode">
+                <p class="text-danger">فایل اجباری است</p>
+                @if (ViewData["IsExistFile"] != null)
+                {
+                    <div class="alert alert-danger">
+                        نام فایل معتبر نیست ، لطفا تغییر دهید
+                    </div>
+                }
+                <span asp-validation-for="@Model.EpisodeFileName"></span>
+            </div>
+            <div class="form-group">
+                <label>وضعیت</label>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" asp-for="@Model.IsFree">
+                        رایگان است
+                    </label>
+                </div>
+                <input type="submit" value="ذخیره اطلاعات" class="btn btn-success" />
+                <a href="/Admin/Episode/Index/@Model.CourseId" class="btn btn-danger btn-sm"><i class="bi bi-trash-fill"></i>بازگشت به لیست</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+

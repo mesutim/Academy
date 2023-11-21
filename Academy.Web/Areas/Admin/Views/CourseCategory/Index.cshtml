@@ -1,0 +1,125 @@
+﻿@model IEnumerable<Academy.Model.Models.CourseModels.Category>
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">لیست گروه  ها</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                لیست گروه های سایت
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <div id="dataTables-example_wrapper" class="dataTables_wrapper form-inline" role="grid">
+                        <div class="col-md-12" style="margin: 10px 0;">
+
+                            <a asp-controller="CourseCategory" asp-action="Create" class="btn btn-outline btn-success">افزودن گروه جدید</a>
+
+                        </div>
+                        <table class="table table-striped table-bordered table-hover dataTable no-footer" id="dataTables-example" aria-describedby="dataTables-example_info">
+                            <thead>
+                                <tr>
+                                    <th>عنوان گروه</th>
+                                    <th>ترتیب نمایش</th>
+                                    <th>
+                                        <table style="width:100%">
+                                            <tr>
+                                                <P style="text-align:center;">زیر گروه ها</P>
+                                                <hr />
+                                            </tr>
+                                            <tr>
+                                                <td>عنوان</td>
+                                                <td>ترتیب نمایش</td>
+                                                <td>دستورات</td>
+                                            </tr>
+                                        </table>
+                                    </th>
+                                    <th>دستورات</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var cat in Model.Where(g => g.ParentId == null))
+                                {
+                                    <tr>
+                                        <td>@cat.CategoryTitle</td>
+                                        <td>@cat.DisplayOrder</td>
+                                        <td>
+                                            @if (Model.Any(c => c.ParentId == cat.CategoryId))
+                                            {
+                                                <table style="width:100%">
+                                                    @foreach (var sub in Model.Where(c => c.ParentId == cat.CategoryId))
+                                                    {
+                                                        <tr>
+                                                            <td>@sub.CategoryTitle</td>
+                                                            <td>@sub.DisplayOrder</td>
+                                                            <td>
+                                                                <a asp-controller="CourseCategory" asp-action="Edit" asp-route-id="@sub.CategoryId" class="btn btn-warning btn-sm">
+                                                                    ویرایش
+                                                                </a>
+                                                                <a onClick=Delete('/Admin/CourseCategory/Delete?categoryId=@sub.CategoryId') class="btn btn-danger btn-sm"><i class="bi bi-trash-fill"></i>حذف</a>
+                                                            </td>
+                                                        </tr>
+                                                    }
+                                                    
+                                                </table>
+                                                
+                                            }
+                                        </td>
+                                        <td>
+                                            <a asp-controller="CourseCategory" asp-action="Create" asp-route-id="@cat.CategoryId" class="btn btn-info btn-sm">
+                                                افزودن زیردسته
+                                            </a>
+                                            <a asp-controller="CourseCategory" asp-action="Edit" asp-route-id="@cat.CategoryId" class="btn btn-warning btn-sm">
+                                                ویرایش
+                                            </a>
+                                            <a onClick=Delete('/Admin/CourseCategory/Delete?categoryId=@cat.CategoryId') class="btn btn-danger btn-sm"><i class="bi bi-trash-fill"></i>حذف</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+
+<script>
+    function Delete(url) {
+        Swal.fire({
+            title: 'آیا از حذف دسته بندی مطمئن هستید؟',
+            text: "توجه: علملیات حذف قابل بازگردانی نخواهد بود.",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'حذف'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: url,
+                    type: 'DELETE',
+                    success: function (data) {
+                        if (data.success) {
+                            toastr.success(data.message);
+                        }
+                    }
+                })
+            }
+        })
+    }
+</script>

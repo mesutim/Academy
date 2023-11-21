@@ -261,6 +261,62 @@
       "PackagePath": "staticwebassets\\AdminContent\\js\\sb-admin.js"
     },
     {
+      "Id": "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.Web\\wwwroot\\CourseFiles\\Demo\\2538072a5813416eb739624308595789.mp4",
+      "PackagePath": "staticwebassets\\CourseFiles\\Demo\\2538072a5813416eb739624308595789.mp4"
+    },
+    {
+      "Id": "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.Web\\wwwroot\\CourseFiles\\Demo\\c4bde3e404bf47fb8be6552e87901740.mp4",
+      "PackagePath": "staticwebassets\\CourseFiles\\Demo\\c4bde3e404bf47fb8be6552e87901740.mp4"
+    },
+    {
+      "Id": "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.Web\\wwwroot\\CourseFiles\\Demo\\cc1a1460df864fb886871cad7ab8b0be.mp4",
+      "PackagePath": "staticwebassets\\CourseFiles\\Demo\\cc1a1460df864fb886871cad7ab8b0be.mp4"
+    },
+    {
+      "Id": "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.Web\\wwwroot\\CourseFiles\\Episode\\7fe21f5351de4a0baca1f68aa7494c35.mp4",
+      "PackagePath": "staticwebassets\\CourseFiles\\Episode\\7fe21f5351de4a0baca1f68aa7494c35.mp4"
+    },
+    {
+      "Id": "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.Web\\wwwroot\\CourseFiles\\Image\\08cb3fff53e440fe8bb7143db461b2ed.jpg",
+      "PackagePath": "staticwebassets\\CourseFiles\\Image\\08cb3fff53e440fe8bb7143db461b2ed.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.Web\\wwwroot\\CourseFiles\\Image\\5a872581959844a9b4bfcdfd97e9b967.jpg",
+      "PackagePath": "staticwebassets\\CourseFiles\\Image\\5a872581959844a9b4bfcdfd97e9b967.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.Web\\wwwroot\\CourseFiles\\Image\\8bab12a2916442d181e69511b13d6075.jpg",
+      "PackagePath": "staticwebassets\\CourseFiles\\Image\\8bab12a2916442d181e69511b13d6075.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.Web\\wwwroot\\CourseFiles\\Image\\b2153548fa7f46a89a1f9854bc142409.jpg",
+      "PackagePath": "staticwebassets\\CourseFiles\\Image\\b2153548fa7f46a89a1f9854bc142409.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.Web\\wwwroot\\CourseFiles\\Image\\no-photo.jpg",
+      "PackagePath": "staticwebassets\\CourseFiles\\Image\\no-photo.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.Web\\wwwroot\\CourseFiles\\Thumb\\08cb3fff53e440fe8bb7143db461b2ed.jpg",
+      "PackagePath": "staticwebassets\\CourseFiles\\Thumb\\08cb3fff53e440fe8bb7143db461b2ed.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.Web\\wwwroot\\CourseFiles\\Thumb\\5a872581959844a9b4bfcdfd97e9b967.jpg",
+      "PackagePath": "staticwebassets\\CourseFiles\\Thumb\\5a872581959844a9b4bfcdfd97e9b967.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.Web\\wwwroot\\CourseFiles\\Thumb\\8bab12a2916442d181e69511b13d6075.jpg",
+      "PackagePath": "staticwebassets\\CourseFiles\\Thumb\\8bab12a2916442d181e69511b13d6075.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.Web\\wwwroot\\CourseFiles\\Thumb\\b2153548fa7f46a89a1f9854bc142409.jpg",
+      "PackagePath": "staticwebassets\\CourseFiles\\Thumb\\b2153548fa7f46a89a1f9854bc142409.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.Web\\wwwroot\\CourseFiles\\Thumb\\no-photo.jpg",
+      "PackagePath": "staticwebassets\\CourseFiles\\Thumb\\no-photo.jpg"
+    },
+    {
       "Id": "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.Web\\wwwroot\\css\\DataTable\\datatables.min.css",
       "PackagePath": "staticwebassets\\css\\DataTable\\datatables.min.css"
     },
@@ -337,8 +393,16 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.Web\\wwwroot\\images\\UserAvatar\\16a96cecbc5c4dd3b2d74fab17f33706.jpg",
+      "PackagePath": "staticwebassets\\images\\UserAvatar\\16a96cecbc5c4dd3b2d74fab17f33706.jpg"
+    },
+    {
       "Id": "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.Web\\wwwroot\\images\\UserAvatar\\DefaultAvatar.jpg",
       "PackagePath": "staticwebassets\\images\\UserAvatar\\DefaultAvatar.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.Web\\wwwroot\\images\\UserAvatar\\ab367e4bb5dd4527aec7411434edea06.jpg",
+      "PackagePath": "staticwebassets\\images\\UserAvatar\\ab367e4bb5dd4527aec7411434edea06.jpg"
     },
     {
       "Id": "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.Web\\wwwroot\\images\\captcha.jpg",
@@ -431,6 +495,10 @@
     {
       "Id": "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.Web\\wwwroot\\images\\slide.jpg",
       "PackagePath": "staticwebassets\\images\\slide.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.Web\\wwwroot\\js\\Config.js",
+      "PackagePath": "staticwebassets\\js\\Config.js"
     },
     {
       "Id": "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.Web\\wwwroot\\js\\CustomJS\\User.js",

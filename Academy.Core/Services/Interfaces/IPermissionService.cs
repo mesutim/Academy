@@ -23,5 +23,9 @@ namespace Academy.Core.Services.Interfaces
         public void UpdateRole(Role role);
 
         void UpdatePermissionsRole(int roleId, List<int> permissions);
+
+        void AddRolesToUser(int userId, List<int> roleIds);
+
+        public void EditRolesUser(int userId, List<int> rolesId);
     }
 }
