@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Category>
+@using Academy.Model.Models.CourseModels
+
+<div class="main-menu">
+    <div class="container">
+        <nav>
+            <span class="responsive-sign"><i class="zmdi zmdi-menu"></i></span>
+            <ul>
+                @foreach (var group in Model.Where(g => g.ParentId == null).OrderBy(c=>c.DisplayOrder))
+                {
+                    <li>
+                        <a href="/course?selectedGroups=@group.CategoryId"> @group.CategoryTitle </a>
+                        @if (Model.Any(g => g.ParentId == group.CategoryId))
+                        {
+                            <ul>
+                                @foreach (var sub in Model.Where(g => g.ParentId == group.CategoryId).OrderBy(c => c.DisplayOrder))
+                                {
+                                    <li><a href="/course?selectedGroups=@sub.CategoryId"> @sub.CategoryTitle </a></li>
+                                }
+                            </ul>
+                        }
+                    </li>
+                }
+            </ul>
+        </nav>
+    </div>
+</div>

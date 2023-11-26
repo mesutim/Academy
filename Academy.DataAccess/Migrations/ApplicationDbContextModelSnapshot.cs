@@ -48,7 +48,7 @@ namespace Academy.DataAccess.Migrations
 
                     b.HasIndex("ParentId");
 
-                    b.ToTable("Categories", (string)null);
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("Academy.Model.Models.CourseModels.Course", b =>
@@ -113,7 +113,7 @@ namespace Academy.DataAccess.Migrations
 
                     b.HasIndex("TeacherId");
 
-                    b.ToTable("Courses", (string)null);
+                    b.ToTable("Courses");
                 });
 
             modelBuilder.Entity("Academy.Model.Models.CourseModels.CourseCategory", b =>
@@ -129,6 +129,46 @@ namespace Academy.DataAccess.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("CourseCategoryMap", (string)null);
+                });
+
+            modelBuilder.Entity("Academy.Model.Models.CourseModels.CourseComment", b =>
+                {
+                    b.Property<int>("CommentId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CommentId"));
+
+                    b.Property<string>("Comment")
+                        .IsRequired()
+                        .HasMaxLength(700)
+                        .HasColumnType("nvarchar(700)");
+
+                    b.Property<int>("CourseId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsAdminRead")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDelete")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("CommentId");
+
+                    b.HasIndex("CourseId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("CourseComments");
                 });
 
             modelBuilder.Entity("Academy.Model.Models.CourseModels.CourseEpisode", b =>
@@ -160,7 +200,7 @@ namespace Academy.DataAccess.Migrations
 
                     b.HasIndex("CourseId");
 
-                    b.ToTable("CourseEpisodes", (string)null);
+                    b.ToTable("CourseEpisodes");
                 });
 
             modelBuilder.Entity("Academy.Model.Models.CourseModels.CourseLevel", b =>
@@ -178,7 +218,7 @@ namespace Academy.DataAccess.Migrations
 
                     b.HasKey("LevelId");
 
-                    b.ToTable("CourseLevels", (string)null);
+                    b.ToTable("CourseLevels");
 
                     b.HasData(
                         new
@@ -218,7 +258,7 @@ namespace Academy.DataAccess.Migrations
 
                     b.HasKey("StatusId");
 
-                    b.ToTable("CourseStatus", (string)null);
+                    b.ToTable("CourseStatus");
 
                     b.HasData(
                         new
@@ -236,6 +276,35 @@ namespace Academy.DataAccess.Migrations
                             StatusId = 3,
                             StatusTitle = "متوقف شده"
                         });
+                });
+
+            modelBuilder.Entity("Academy.Model.Models.CourseModels.CourseVote", b =>
+                {
+                    b.Property<int>("VoteId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("VoteId"));
+
+                    b.Property<int>("CourseId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Vote")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("VoteDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("VoteId");
+
+                    b.HasIndex("CourseId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("CourseVotes");
                 });
 
             modelBuilder.Entity("Academy.Model.Models.CourseModels.UserCourse", b =>
@@ -273,7 +342,7 @@ namespace Academy.DataAccess.Migrations
 
                     b.HasIndex("ParentID");
 
-                    b.ToTable("Permissions", (string)null);
+                    b.ToTable("Permissions");
 
                     b.HasData(
                         new
@@ -361,7 +430,7 @@ namespace Academy.DataAccess.Migrations
 
                     b.HasKey("RoleId");
 
-                    b.ToTable("Roles", (string)null);
+                    b.ToTable("Roles");
 
                     b.HasData(
                         new
@@ -486,7 +555,7 @@ namespace Academy.DataAccess.Migrations
 
                     b.HasKey("UserId");
 
-                    b.ToTable("Users", (string)null);
+                    b.ToTable("Users");
 
                     b.HasData(
                         new
@@ -497,7 +566,7 @@ namespace Academy.DataAccess.Migrations
                             IsActive = true,
                             IsDelete = false,
                             Password = "123",
-                            RegisterDate = new DateTime(2023, 11, 15, 0, 27, 49, 52, DateTimeKind.Local).AddTicks(4856),
+                            RegisterDate = new DateTime(2023, 11, 24, 23, 0, 52, 41, DateTimeKind.Local).AddTicks(30),
                             UserAvatar = "Default.png",
                             UserName = "Admin"
                         });
@@ -523,6 +592,244 @@ namespace Academy.DataAccess.Migrations
                             RoleId = 1,
                             UserId = 1
                         });
+                });
+
+            modelBuilder.Entity("Academy.Model.Models.OrderModels.Discount", b =>
+                {
+                    b.Property<int>("DiscountId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DiscountId"));
+
+                    b.Property<string>("DiscountCode")
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
+
+                    b.Property<int>("DiscountPercent")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("EndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("StartDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("UsableCount")
+                        .HasColumnType("int");
+
+                    b.HasKey("DiscountId");
+
+                    b.ToTable("Discounts");
+                });
+
+            modelBuilder.Entity("Academy.Model.Models.OrderModels.Order", b =>
+                {
+                    b.Property<int>("OrderId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderId"));
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsFinaly")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("OrderSum")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("OrderId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("Academy.Model.Models.OrderModels.OrderDetail", b =>
+                {
+                    b.Property<int>("DetailId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DetailId"));
+
+                    b.Property<int>("Count")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CourseId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Price")
+                        .HasColumnType("int");
+
+                    b.HasKey("DetailId");
+
+                    b.HasIndex("CourseId");
+
+                    b.HasIndex("OrderId");
+
+                    b.ToTable("OrderDetails");
+                });
+
+            modelBuilder.Entity("Academy.Model.Models.OrderModels.UserDiscountCode", b =>
+                {
+                    b.Property<int>("DiscountId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("DiscountId", "UserId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserDiscountMap", (string)null);
+                });
+
+            modelBuilder.Entity("Academy.Model.Models.SiteVisitModels.SiteVisit", b =>
+                {
+                    b.Property<int>("VisitID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("VisitID"));
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("IP")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("VisitID");
+
+                    b.ToTable("SiteVisits");
+                });
+
+            modelBuilder.Entity("Academy.Model.Models.TicketModels.Answer", b =>
+                {
+                    b.Property<int>("AnswerId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AnswerId"));
+
+                    b.Property<string>("BodyAnswer")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsTrue")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("QuestionId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("AnswerId");
+
+                    b.HasIndex("QuestionId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Answers");
+                });
+
+            modelBuilder.Entity("Academy.Model.Models.TicketModels.Question", b =>
+                {
+                    b.Property<int>("QuestionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("QuestionId"));
+
+                    b.Property<string>("Body")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("CourseId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Title")
+                        .HasMaxLength(400)
+                        .HasColumnType("nvarchar(400)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("QuestionId");
+
+                    b.HasIndex("CourseId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Questions");
+                });
+
+            modelBuilder.Entity("Academy.Model.Models.TransactionModels.Transaction", b =>
+                {
+                    b.Property<int>("TransactionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TransactionId"));
+
+                    b.Property<int>("Amount")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(400)
+                        .HasColumnType("nvarchar(400)");
+
+                    b.Property<bool>("IsPay")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("TypeId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("TransactionId");
+
+                    b.HasIndex("TypeId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Transactions");
+                });
+
+            modelBuilder.Entity("Academy.Model.Models.TransactionModels.TransactionType", b =>
+                {
+                    b.Property<int>("TransactionTypeId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TransactionTypeTitle")
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
+
+                    b.HasKey("TransactionTypeId");
+
+                    b.ToTable("TransactionTypes");
                 });
 
             modelBuilder.Entity("Academy.Model.Models.CourseModels.Category", b =>
@@ -578,6 +885,25 @@ namespace Academy.DataAccess.Migrations
                     b.Navigation("Course");
                 });
 
+            modelBuilder.Entity("Academy.Model.Models.CourseModels.CourseComment", b =>
+                {
+                    b.HasOne("Academy.Model.Models.CourseModels.Course", "Course")
+                        .WithMany("CourseComments")
+                        .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Academy.Model.Models.IdentityModels.User", "User")
+                        .WithMany("CourseComments")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Course");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Academy.Model.Models.CourseModels.CourseEpisode", b =>
                 {
                     b.HasOne("Academy.Model.Models.CourseModels.Course", "Course")
@@ -587,6 +913,25 @@ namespace Academy.DataAccess.Migrations
                         .IsRequired();
 
                     b.Navigation("Course");
+                });
+
+            modelBuilder.Entity("Academy.Model.Models.CourseModels.CourseVote", b =>
+                {
+                    b.HasOne("Academy.Model.Models.CourseModels.Course", "Course")
+                        .WithMany("CourseVotes")
+                        .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Academy.Model.Models.IdentityModels.User", "User")
+                        .WithMany("CourseVotes")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Course");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Academy.Model.Models.CourseModels.UserCourse", b =>
@@ -655,6 +1000,110 @@ namespace Academy.DataAccess.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("Academy.Model.Models.OrderModels.Order", b =>
+                {
+                    b.HasOne("Academy.Model.Models.IdentityModels.User", "User")
+                        .WithMany("Orders")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Academy.Model.Models.OrderModels.OrderDetail", b =>
+                {
+                    b.HasOne("Academy.Model.Models.CourseModels.Course", "Course")
+                        .WithMany("OrderDetails")
+                        .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Academy.Model.Models.OrderModels.Order", "Order")
+                        .WithMany("OrderDetails")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Course");
+
+                    b.Navigation("Order");
+                });
+
+            modelBuilder.Entity("Academy.Model.Models.OrderModels.UserDiscountCode", b =>
+                {
+                    b.HasOne("Academy.Model.Models.OrderModels.Discount", "Discount")
+                        .WithMany("UserDiscountCodes")
+                        .HasForeignKey("DiscountId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Academy.Model.Models.IdentityModels.User", "User")
+                        .WithMany("UserDiscountCodes")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Discount");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Academy.Model.Models.TicketModels.Answer", b =>
+                {
+                    b.HasOne("Academy.Model.Models.TicketModels.Question", "Question")
+                        .WithMany("Answers")
+                        .HasForeignKey("QuestionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Academy.Model.Models.IdentityModels.User", "User")
+                        .WithMany("Answers")
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("Question");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Academy.Model.Models.TicketModels.Question", b =>
+                {
+                    b.HasOne("Academy.Model.Models.CourseModels.Course", "Course")
+                        .WithMany("Questions")
+                        .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Academy.Model.Models.IdentityModels.User", "User")
+                        .WithMany("Questions")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Course");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Academy.Model.Models.TransactionModels.Transaction", b =>
+                {
+                    b.HasOne("Academy.Model.Models.TransactionModels.TransactionType", "TransactionType")
+                        .WithMany("Transactions")
+                        .HasForeignKey("TypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Academy.Model.Models.IdentityModels.User", "User")
+                        .WithMany("Transactions")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("TransactionType");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Academy.Model.Models.CourseModels.Category", b =>
                 {
                     b.Navigation("Children");
@@ -666,7 +1115,15 @@ namespace Academy.DataAccess.Migrations
                 {
                     b.Navigation("CourseCategories");
 
+                    b.Navigation("CourseComments");
+
                     b.Navigation("CourseEpisodes");
+
+                    b.Navigation("CourseVotes");
+
+                    b.Navigation("OrderDetails");
+
+                    b.Navigation("Questions");
 
                     b.Navigation("UserCourses");
                 });
@@ -697,11 +1154,45 @@ namespace Academy.DataAccess.Migrations
 
             modelBuilder.Entity("Academy.Model.Models.IdentityModels.User", b =>
                 {
+                    b.Navigation("Answers");
+
+                    b.Navigation("CourseComments");
+
+                    b.Navigation("CourseVotes");
+
                     b.Navigation("Courses");
+
+                    b.Navigation("Orders");
+
+                    b.Navigation("Questions");
+
+                    b.Navigation("Transactions");
 
                     b.Navigation("UserCourses");
 
+                    b.Navigation("UserDiscountCodes");
+
                     b.Navigation("UserRoles");
+                });
+
+            modelBuilder.Entity("Academy.Model.Models.OrderModels.Discount", b =>
+                {
+                    b.Navigation("UserDiscountCodes");
+                });
+
+            modelBuilder.Entity("Academy.Model.Models.OrderModels.Order", b =>
+                {
+                    b.Navigation("OrderDetails");
+                });
+
+            modelBuilder.Entity("Academy.Model.Models.TicketModels.Question", b =>
+                {
+                    b.Navigation("Answers");
+                });
+
+            modelBuilder.Entity("Academy.Model.Models.TransactionModels.TransactionType", b =>
+                {
+                    b.Navigation("Transactions");
                 });
 #pragma warning restore 612, 618
         }

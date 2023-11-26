@@ -1,8 +1,10 @@
-﻿using Academy.Core.Generator;
+﻿using Academy.Core.Convertors;
+using Academy.Core.Generator;
 using Academy.Core.Security;
 using Academy.Core.Services.Interfaces;
 using Academy.DataAccess.Context;
 using Academy.Model.Models.IdentityModels;
+using Academy.Model.Models.TransactionModels;
 using Academy.Model.ViewModels;
 using Microsoft.EntityFrameworkCore;
 
@@ -42,25 +44,21 @@ namespace Academy.Core.Services
                 .ToList();
             return list;
         }
-
         public void DeleteUser(int userId)
         {
             User user = GetUserById(userId);
             user.IsDelete = true;
             UpdateUser(user);
         }
-
         public User GetUserById(int userId)
         {
             return _context.Users.Find(userId);
         }
-
         public void UpdateUser(User user)
         {
             _context.Update(user);
             _context.SaveChanges();
         }
-
         public DeleteUsersForAdminViewModel GetDeletedUsers(int pageId = 1, int showCount = 1, string filterEmail = "", string filterUserName = "")
         {
             IQueryable<User> result = _context.Users.IgnoreQueryFilters().Where(u => u.IsDelete == true);
@@ -88,7 +86,6 @@ namespace Academy.Core.Services
 
             return list;
         }
-
         public DeletedUserInformationViewModel GetDeleteUserInformation(int userId)
         {
             var user = _context.Users
@@ -104,7 +101,6 @@ namespace Academy.Core.Services
 
             return information;
         }
-
         public void RecoverUser(int userId)
         {
             User user = _context.Users
@@ -114,7 +110,6 @@ namespace Academy.Core.Services
             user.IsDelete = false;
             UpdateUser(user);
         }
-
         public int AddUserFromAdmin(CreateUserViewModel user)
         {
             User adduser = new User();
@@ -143,14 +138,12 @@ namespace Academy.Core.Services
 
             return AddUser(adduser);
         }
-
         public int AddUser(User user)
         {
             _context.Users.Add(user);
             _context.SaveChanges();
             return user.UserId;
         }
-
         public EditUserViewModel GetUserForShowInEditMode(int userId)
         {
             return _context.Users.Where(u => u.UserId == userId)
@@ -163,7 +156,6 @@ namespace Academy.Core.Services
                     UserRoles = u.UserRoles.Select(r => r.RoleId).ToList()
                 }).Single();
         }
-
         public void EditUserFromAdmin(EditUserViewModel editUser)
         {
             User user = GetUserById(editUser.UserId);
@@ -196,6 +188,64 @@ namespace Academy.Core.Services
 
             _context.Users.Update(user);
             _context.SaveChanges();
+        }
+        public bool IsExistUserName(string userName)
+        {
+            return _context.Users.Any(u => u.UserName == userName);
+        }
+        public bool IsExistEmail(string email)
+        {
+            return _context.Users.Any(u => u.Email == email);
+        }
+        public bool ActiveAccount(string activeCode)
+        {
+            var user = _context.Users.SingleOrDefault(u => u.ActiveCode == activeCode);
+            if (user == null || user.IsActive)
+                return false;
+
+            user.IsActive = true;
+            user.ActiveCode = NameGenerator.GenerateUniqCode();
+            _context.SaveChanges();
+
+            return true;
+        }
+        public User LoginUser(LoginViewModel login)
+        {
+            string hashPassword = PasswordHelper.EncodePasswordMd5(login.Password);
+            string email = FixedText.FixEmail(login.Email);
+            return _context.Users.SingleOrDefault(u => u.Email == email && u.Password == hashPassword);
+        }
+        public User GetUserByEmail(string email)
+        {
+            return _context.Users.SingleOrDefault(u => u.Email == email);
+        }
+        public User GetUserByActiveCode(string activeCode)
+        {
+            return _context.Users.SingleOrDefault(u => u.ActiveCode == activeCode);
+        }
+        public int GetUserIdByUserName(string userName)
+        {
+            return _context.Users.Single(u => u.UserName == userName).UserId;
+        }
+        public int BalanceUserTransaction(string username)
+        {
+            int userId = GetUserIdByUserName(username);
+
+            var enter = _context.Transactions
+                .Where(w => w.UserId == userId && w.TypeId == 1 && w.IsPay)
+                .Select(w => w.Amount).ToList();
+
+            var exit = _context.Transactions
+                .Where(w => w.UserId == userId && w.TypeId == 2 && w.IsPay)
+                .Select(w => w.Amount).ToList();
+
+            return (enter.Sum() - exit.Sum());
+        }
+        public int AddTransaction(Transaction transaction)
+        {
+            _context.Transactions.Add(transaction);
+            _context.SaveChanges();
+            return transaction.TransactionId;
         }
     }
 }

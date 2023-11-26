@@ -287,6 +287,10 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[7.0.11, )"
+            },
+            "SharpCompress": {
+              "target": "Package",
+              "version": "[0.34.2, )"
             }
           },
           "imports": [

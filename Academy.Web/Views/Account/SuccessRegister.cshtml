@@ -1,0 +1,22 @@
+﻿@model User
+@using Academy.Model.Models.IdentityModels
+@{
+    ViewData["Title"] = "پایان ثبت نام";
+}
+<div class="container">
+    <nav aria-label="breadcrumb">
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">مای آکادمی</a></li>
+            <li class="breadcrumb-item active" aria-current="page">پایان ثبت نام</li>
+        </ul>
+    </nav>
+</div>
+
+<div class="alert alert-success">
+    <h2 class="text-center">@Model.UserName عزیز!</h2>
+    <p class="text-center"> ایمیلی حاوی لینک فعالسازی به ایمیل @Model.Email ارسال شد و ثبت نام شما با موفقیت انجام گردید.</p>
+    <p class="text-center">
+        جهت فعالسازی حساب کاربری خود به ایمیل فوق مراجعه و روی لینک فعال سازی کلیک فرمایید.
+    </p>
+
+</div>

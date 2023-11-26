@@ -34,12 +34,6 @@
                                         <table style="width:100%">
                                             <tr>
                                                 <P style="text-align:center;">زیر گروه ها</P>
-                                                <hr />
-                                            </tr>
-                                            <tr>
-                                                <td>عنوان</td>
-                                                <td>ترتیب نمایش</td>
-                                                <td>دستورات</td>
                                             </tr>
                                         </table>
                                     </th>
@@ -47,7 +41,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach (var cat in Model.Where(g => g.ParentId == null))
+                                @foreach (var cat in Model.Where(g => g.ParentId == null).OrderBy(c => c.DisplayOrder))
                                 {
                                     <tr>
                                         <td>@cat.CategoryTitle</td>
@@ -56,12 +50,12 @@
                                             @if (Model.Any(c => c.ParentId == cat.CategoryId))
                                             {
                                                 <table style="width:100%">
-                                                    @foreach (var sub in Model.Where(c => c.ParentId == cat.CategoryId))
+                                                    @foreach (var sub in Model.Where(c => c.ParentId == cat.CategoryId).OrderBy(c => c.DisplayOrder))
                                                     {
                                                         <tr>
                                                             <td>@sub.CategoryTitle</td>
                                                             <td>@sub.DisplayOrder</td>
-                                                            <td>
+                                                            <td class="text-left">
                                                                 <a asp-controller="CourseCategory" asp-action="Edit" asp-route-id="@sub.CategoryId" class="btn btn-warning btn-sm">
                                                                     ویرایش
                                                                 </a>

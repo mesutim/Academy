@@ -1,4 +1,5 @@
 ﻿using Academy.Model.Models.IdentityModels;
+using Academy.Model.Models.TransactionModels;
 using Academy.Model.ViewModels;
 
 namespace Academy.Core.Services.Interfaces
@@ -16,5 +17,14 @@ namespace Academy.Core.Services.Interfaces
         int AddUser(User user);
         EditUserViewModel GetUserForShowInEditMode(int userId);
         void EditUserFromAdmin(EditUserViewModel editUser);
+        bool IsExistUserName(string userName);
+        bool IsExistEmail(string email);
+        bool ActiveAccount(string activeCode);
+        User LoginUser(LoginViewModel login);
+        User GetUserByEmail(string email);
+        User GetUserByActiveCode(string activeCode);
+        int GetUserIdByUserName(string userName);
+        int BalanceUserTransaction(string username);
+        int AddTransaction(Transaction transaction);
     }
 }

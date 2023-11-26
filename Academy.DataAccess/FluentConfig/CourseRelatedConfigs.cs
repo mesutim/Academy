@@ -148,5 +148,39 @@ namespace Academy.DataAccess.FluentConfig
                 .HasForeignKey(u => u.UserId);
         }
     }
+
+    public class CourseCommentConfig : IEntityTypeConfiguration<CourseComment>
+    {
+        public void Configure(EntityTypeBuilder<CourseComment> modelBuilder)
+        {
+            //primary key
+            modelBuilder.HasKey(c=>c.CommentId);
+
+            //other validations
+            modelBuilder.Property(u => u.Comment).IsRequired();
+            modelBuilder.Property(u => u.Comment).HasMaxLength(700);
+
+            //relations
+            modelBuilder.HasOne(b => b.Course).WithMany(b => b.CourseComments)
+                .HasForeignKey(u => u.CourseId);
+            modelBuilder.HasOne(b => b.User).WithMany(b => b.CourseComments)
+                .HasForeignKey(u => u.UserId);
+        }
+    }
+
+    public class CourseVoteConfig : IEntityTypeConfiguration<CourseVote>
+    {
+        public void Configure(EntityTypeBuilder<CourseVote> modelBuilder)
+        {
+            //primary key
+            modelBuilder.HasKey(c => c.VoteId);
+
+            //relations
+            modelBuilder.HasOne(b => b.Course).WithMany(b => b.CourseVotes)
+                .HasForeignKey(u => u.CourseId);
+            modelBuilder.HasOne(b => b.User).WithMany(b => b.CourseVotes)
+                .HasForeignKey(u => u.UserId);
+        }
+    }
 }
 

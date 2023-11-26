@@ -108,6 +108,7 @@ namespace Academy.Core.Services
             course.LevelId = newCourse.Course.LevelId;
             course.StatusId = newCourse.Course.StatusId;
             course.CreateDate = DateTime.Now;
+            course.UpdateDate = DateTime.Now;
             course.ShortKey = GenerateShortKey();
             course.CourseImageName = "no-photo.jpg";
 
@@ -136,10 +137,6 @@ namespace Academy.Core.Services
                     courseDemo.CopyTo(stream);
                 }
             }
-
-            
-
-
             _context.Add(course);
             _context.SaveChanges();
 
@@ -158,8 +155,90 @@ namespace Academy.Core.Services
                 });
             }
             _context.SaveChanges();
-
             return course.CourseId;
+        }
+        public void UpdateCourse(CreateCourseAdminViewModel course, IFormFile imgCourse, IFormFile courseDemo)
+        {
+            Course editedCourse = _context.Courses.Find(course.Course.Id);
+            editedCourse.UpdateDate = DateTime.Now;
+            editedCourse.CourseTitle = course.Course.Title;
+            editedCourse.TeacherId = course.Course.TeacherId;
+            editedCourse.CourseDescription = course.Course.Description;
+            editedCourse.CoursePrice = course.Course.Price;
+            editedCourse.Tags = course.Course.Tags;
+            editedCourse.LevelId = course.Course.LevelId;
+            editedCourse.StatusId = course.Course.StatusId;
+            if (imgCourse != null && imgCourse.IsImage())
+            {
+                if (editedCourse.CourseImageName != "no-photo.jpg")
+                {
+                    string deleteimagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/CourseFiles/Image/", editedCourse.CourseImageName);
+                    if (File.Exists(deleteimagePath))
+                    {
+                        File.Delete(deleteimagePath);
+                    }
+
+                    string deletethumbPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/CourseFiles/Thumb/", editedCourse.CourseImageName);
+                    if (File.Exists(deletethumbPath))
+                    {
+                        File.Delete(deletethumbPath);
+                    }
+                }
+                editedCourse.CourseImageName = NameGenerator.GenerateUniqCode() + Path.GetExtension(imgCourse.FileName);
+                string imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/CourseFiles/Image/", editedCourse.CourseImageName);
+
+                using (var stream = new FileStream(imagePath, FileMode.Create))
+                {
+                    imgCourse.CopyTo(stream);
+                }
+
+                ImageConvertor imgResizer = new ImageConvertor();
+                string thumbPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/CourseFiles/Thumb/", editedCourse.CourseImageName);
+
+                imgResizer.Image_resize(imagePath, thumbPath, 150);
+            }
+
+            if (courseDemo != null)
+            {
+                if (editedCourse.DemoFileName != null)
+                {
+                    string deleteDemoPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/CourseFiles/Demo/", editedCourse.DemoFileName);
+                    if (File.Exists(deleteDemoPath))
+                    {
+                        File.Delete(deleteDemoPath);
+                    }
+                }
+                editedCourse.DemoFileName = NameGenerator.GenerateUniqCode() + Path.GetExtension(courseDemo.FileName);
+                string demoPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/CourseFiles/Demo/", editedCourse.DemoFileName);
+                using (var stream = new FileStream(demoPath, FileMode.Create))
+                {
+                    courseDemo.CopyTo(stream);
+                }
+            }
+
+            _context.Courses.Update(editedCourse);
+
+            foreach (var item in _context.courseCategoryMap.Where(c=>c.CourseId==editedCourse.CourseId))
+            {
+                _context.courseCategoryMap.Remove(item);
+            };
+
+            _context.courseCategoryMap.Add(new CourseCategory()
+            {
+                CourseId = editedCourse.CourseId,
+                CategoryId = course.Course.CategoryId
+            });
+
+            if (course.Course.SubCategoryId != null)
+            {
+                _context.courseCategoryMap.Add(new CourseCategory()
+                {
+                    CourseId = editedCourse.CourseId,
+                    CategoryId = course.Course.SubCategoryId
+                });
+            }
+
+            _context.SaveChanges();
         }
         private string GenerateShortKey(int lenght = 5)
         {
@@ -179,7 +258,7 @@ namespace Academy.Core.Services
         public CreateCourseViewModel GetCourseForEditByAdmin(int courseId)
         {
             Course course = _context.Courses.Find(courseId);
-            List<CourseCategory> categories = _context.courseCategoryMap.Where(c=>c.CourseId==courseId).Include(c => c.Category).ToList();
+            List<CourseCategory> categories = _context.courseCategoryMap.Where(c => c.CourseId == courseId).Include(c => c.Category).ToList();
             CreateCourseViewModel editedCourse = new CreateCourseViewModel()
             {
                 Id = courseId,
@@ -274,6 +353,179 @@ namespace Academy.Core.Services
             _context.Courses.Update(course);
             _context.SaveChanges();
         }
+        public List<Category> GetAllGroup()
+        {
+            return _context.Categories.ToList();
+        }
+        public List<ShowCourseListItemViewModel> GetLatestCourseList()
+        {
+            return _context.Courses
+                .Include(c => c.CourseEpisodes)
+                .OrderBy(c => c.CreateDate)
+                .Take(8)
+                .Select(c => new ShowCourseListItemViewModel()
+                {
+                    CourseId = c.CourseId,
+                    Title = c.CourseTitle,
+                    ImageName = c.CourseImageName,
+                    Price = c.CoursePrice,
+                    CourseEpisodes = c.CourseEpisodes
+                }).ToList();
+        }
+        public List<ShowCourseListItemViewModel> GetPopularCourseList()
+        {
+            return _context.Courses.Include(c => c.OrderDetails)
+               .Where(c => c.OrderDetails.Any())
+               .OrderByDescending(d => d.OrderDetails.Count)
+               .Take(8)
+               .Select(c => new ShowCourseListItemViewModel()
+               {
+                   CourseId = c.CourseId,
+                   ImageName = c.CourseImageName,
+                   Price = c.CoursePrice,
+                   Title = c.CourseTitle,
+                   CourseEpisodes = c.CourseEpisodes
+               })
+               .ToList();
+        }
+        public Tuple<List<ShowCourseListItemViewModel>, int, int>
+            GetCourse(
+                int pageId = 1,
+                string filter = "",
+                string getType = "all",
+                string orderByType = "date",
+                int startPrice = 0,
+                int endPrice = 0,
+                int? selectedCategory = null,
+                int take = 8)
+        {
+            IQueryable<Course> result = _context.Courses;
+            if (!string.IsNullOrEmpty(filter))
+            {
+                result = result.Where(c => c.CourseTitle.Contains(filter) || c.Tags.Contains(filter));
+            }
 
+            switch (getType)
+            {
+                case "all":
+                    break;
+                case "buy":
+                    result = result.Where(c => c.CoursePrice != 0);
+                    break;
+                case "free":
+                    result = result.Where(c => c.CoursePrice == 0);
+                    break;
+            }
+
+            switch (orderByType)
+            {
+                case "date":
+                    result = result.OrderByDescending(c => c.CreateDate);
+                    break;
+                case "updatedate":
+                    result = result.OrderByDescending(c => c.UpdateDate);
+                    break;
+                case "price":
+                    result = result.OrderByDescending(c => c.CoursePrice);
+                    break;
+            }
+
+            if (startPrice > 0)
+            {
+                result = result.Where(c => c.CoursePrice > startPrice);
+            }
+            if (endPrice > 0)
+            {
+                result = result.Where(c => c.CoursePrice < endPrice);
+            }
+
+            if (selectedCategory != null)
+            {
+                    result = result.Where(c => c.CourseCategories.Any(c => c.CategoryId == selectedCategory));
+            }
+
+            int count = result.Count();
+
+            int pageCount = count / take;
+
+            int skip = (pageId - 1) * take;
+
+            var query = result.Include(c => c.CourseEpisodes).Select(c => new ShowCourseListItemViewModel()
+            {
+                CourseId = c.CourseId,
+                ImageName = c.CourseImageName,
+                Price = c.CoursePrice,
+                Title = c.CourseTitle,
+                CourseEpisodes = c.CourseEpisodes
+
+
+            }).Skip(skip).Take(take).ToList();
+            return Tuple.Create(query, pageCount, count);
+        }
+
+        public Course GetCourseForShow(int courseId)
+        {
+            return _context.Courses
+                .Include(c => c.CourseEpisodes)
+                .Include(c => c.CourseStatus)
+                .Include(c => c.CourseLevel)
+                .Include(c => c.UserCourses)
+                .Include(c => c.User)
+                .FirstOrDefault(c => c.CourseId == courseId);
+
+        }
+        public Course GetCourseByShortKey(string shortKey)
+        {
+            return _context.Courses.FirstOrDefault(c => c.ShortKey == shortKey);
+        }
+        public void AddComment(CourseComment comment)
+        {
+            _context.CourseComments.Add(comment);
+            _context.SaveChanges();
+        }
+        public Tuple<List<CourseComment>, int> GetCourseComment(int courseId, int pageId = 1)
+        {
+            int take = 2;
+            int skip = (pageId - 1) * take;
+            int pageCount = _context.CourseComments.Where(c => !c.IsDelete && c.CourseId == courseId).Count() / take;
+            //if ((pageCount % 2) != 0)
+            //{
+            //    pageCount += 1;
+            //}
+            return Tuple.Create(
+                _context.CourseComments.Include(c => c.User).Where(c => !c.IsDelete && c.CourseId == courseId).Skip(skip).Take(take)
+                    .OrderByDescending(c => c.CreateDate).ToList(), pageCount);
+        }
+        public bool IsFree(int courseId)
+        {
+            return _context.Courses.Where(c => c.CourseId == courseId).Select(c => c.CoursePrice).First() == 0;
+        }
+        public Tuple<int, int> GetCourseVotes(int courseId)
+        {
+            var votes = _context.CourseVotes.Where(v => v.CourseId == courseId).Select(v => v.Vote).ToList();
+
+            return Tuple.Create(votes.Count(c => c), votes.Count(c => !c));
+
+        }
+        public void AddsVote(int userId, int courseId, bool vote)
+        {
+            var UserVote = _context.CourseVotes.FirstOrDefault(c => c.UserId == userId && c.CourseId == courseId);
+            if (UserVote != null)
+            {
+                UserVote.Vote = vote;
+            }
+            else
+            {
+                UserVote = new CourseVote()
+                {
+                    CourseId = courseId,
+                    UserId = userId,
+                    Vote = vote
+                };
+                _context.Add(UserVote);
+            }
+
+            _context.SaveChanges();
+        }
     }
 }

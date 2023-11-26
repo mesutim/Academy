@@ -1,10 +1,7 @@
 ﻿using Academy.Model.Models.CourseModels;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Academy.Model.Models.OrderModels;
+using Academy.Model.Models.TicketModels;
+using Academy.Model.Models.TransactionModels;
 
 namespace Academy.Model.Models.IdentityModels
 {
@@ -22,8 +19,15 @@ namespace Academy.Model.Models.IdentityModels
 
         #region Relations
         public List<UserRole> UserRoles { get; set; }
+        public List<CourseComment> CourseComments { get; set; }
+        public List<CourseVote> CourseVotes { get; set; }
         public List<UserCourse> UserCourses { get; set; }
         public List<Course> Courses { get; set; }
+        public List<Answer> Answers { get; set; }
+        public List<Question> Questions { get; set; }
+        public List<Order> Orders { get; set; }
+        public List<UserDiscountCode> UserDiscountCodes { get; set; }
+        public List<Transaction> Transactions { get; set; }
         #endregion
 
 

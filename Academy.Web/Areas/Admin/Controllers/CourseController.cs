@@ -78,6 +78,17 @@ namespace Academy.Web.Areas.Admin.Controllers
             return View(newUser);
         }
 
+        [HttpPost]
+        public IActionResult Edit(CreateCourseAdminViewModel newCourse, IFormFile? imgCourseUp, IFormFile? demoUp)
+        {
+            if (!ModelState.IsValid)
+                return View(newCourse);
+
+            _courseService.UpdateCourse(newCourse, imgCourseUp, demoUp);
+
+            return RedirectToAction(nameof(Index));
+        }
+
         public IActionResult GetSubCategories(int id)
         {
             List<SelectListItem> list = new List<SelectListItem>()

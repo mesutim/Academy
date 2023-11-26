@@ -526,3 +526,5 @@ F:\git.ir\Javad AliBabaie\Resume Project\Academy\Academy.Web\obj\Debug\net7.0\re
 F:\git.ir\Javad AliBabaie\Resume Project\Academy\Academy.Web\obj\Debug\net7.0\Academy.Web.pdb
 F:\git.ir\Javad AliBabaie\Resume Project\Academy\Academy.Web\obj\Debug\net7.0\Academy.Web.genruntimeconfig.cache
 F:\git.ir\Javad AliBabaie\Resume Project\Academy\Academy.Web\obj\Debug\net7.0\ref\Academy.Web.dll
+C:\Users\Mesud\source\repos\Academy\Academy.Web\bin\Debug\net7.0\SharpCompress.dll
+C:\Users\Mesud\source\repos\Academy\Academy.Web\bin\Debug\net7.0\ZstdSharp.dll

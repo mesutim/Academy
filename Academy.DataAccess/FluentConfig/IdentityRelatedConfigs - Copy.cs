@@ -29,7 +29,7 @@ namespace Academy.DataAccess.FluentConfig
             //    .HasForeignKey(e => e.ParentID);
         }
     }
-}
+
     public class RoleConfig : IEntityTypeConfiguration<Role>
     {
         public void Configure(EntityTypeBuilder<Role> modelBuilder)
@@ -110,3 +110,4 @@ namespace Academy.DataAccess.FluentConfig
                 .HasForeignKey(u => u.UserId);
         }
     }
+}

@@ -1,18 +1,14 @@
 ﻿using Academy.Model.Models.IdentityModels;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+using Academy.Model.Models.OrderModels;
+using Academy.Model.Models.TicketModels;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Academy.Model.Models.CourseModels
 {
     public class Course
     {
         public int CourseId { get; set; }
-        public int TeacherId { get; set; }
+        public int? TeacherId { get; set; }
         public int StatusId { get; set; }
         public int LevelId { get; set; }
         public bool IsDelete { get; set; }
@@ -34,6 +30,10 @@ namespace Academy.Model.Models.CourseModels
         public User User { get; set; }
         public List<CourseEpisode> CourseEpisodes { get; set; }
         public List<UserCourse> UserCourses { get; set; }
+        public List<CourseComment> CourseComments { get; set; }
+        public List<CourseVote> CourseVotes { get; set; }
+        public List<OrderDetail> OrderDetails { get; set; }
+        public List<Question> Questions { get; set; }
         #endregion
     }
 }

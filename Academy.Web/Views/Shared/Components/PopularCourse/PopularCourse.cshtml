@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Academy.Model.ViewModels.ShowCourseListItemViewModel>
+
+@if (Model.Any())
+{
+    foreach (var item in Model)
+    {
+        <partial name="_BoxCourse" model="@item" />
+    }
+}
+else
+{
+    <div class="alert alert-danger text-center">دوره ای یافت نشد</div>
+}    

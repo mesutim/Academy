@@ -6,7 +6,8 @@
 
     <partial name="_MetaTags" />
     <partial name="_Styles" />
-
+    @RenderSection("CustomStyles",false)
+    @RenderSection("MetaTag",false)
     <script src="/js/jquery.min.js"></script>
 </head>
 <body>
@@ -20,21 +21,29 @@
                         <ul>
                             <li>
                                 <a href=""> همکاری در فروش </a>
-                                <a href=""> درباره ما </a>
-                                <a href=""> تماس با ما </a>
+                                <a href="/AboutUs"> درباره ما </a>
+                                <a href="/ContactUs"> تماس با ما </a>
+                                <a href="/Forum"> انجمن </a>
                             </li>
                         </ul>
                     </div>
                     <div class="col-sm-6 col-xs-12">
                         <div class="clientarea">
-                            <div class="loggein ">
-                                <i class="zmdi zmdi-account"></i><a href=""> محمد مهدوی ، خوش آمدید </a>
-                            </div>
-                            <div class="signin hidden">
-                                <i class="zmdi zmdi-account"></i>
-                                <a href=""> ورود </a> /
-                                <a href=""> عضویت </a>
-                            </div>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <div class="loggein">
+                                    <i class="zmdi zmdi-account"></i><a href="/UserPanel"> @User.Identity.Name ، خوش آمدید </a> /
+                                    <a href="/Logout"> خروج </a>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="signin ">
+                                    <i class="zmdi zmdi-account"></i>
+                                    <a href="/Login"> ورود </a> /
+                                    <a href="/Register"> عضویت </a>
+                                </div>
+                            }
                         </div>
                     </div>
                 </div>
@@ -45,7 +54,10 @@
     </div>
 
     <!-- main manu -->
-    <partial name="_MainMenu" />
+    @* <partial name="_MainMenu" /> *@
+    <cache expires-after="@TimeSpan.FromMinutes(3)">
+        @await Component.InvokeAsync("CourseCategory")
+    </cache>
     <!-- /main manu -->
     <!-- content -->
     @RenderBody()
@@ -56,5 +68,6 @@
 
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/script.js"></script>
+    @RenderSection("Scripts",false)
 </body>
 </html>
