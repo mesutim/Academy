@@ -43,6 +43,7 @@ builder.Services.AddScoped<ICourseService, CourseService>();
 builder.Services.AddScoped<IPermissionService, PermissionService>();
 builder.Services.AddScoped<IViewRenderService, RenderViewToString>();
 builder.Services.AddScoped<IOrderService, OrderService>();
+builder.Services.AddScoped<IForumService, ForumService>();
 #endregion
 
 // Add services to the container.

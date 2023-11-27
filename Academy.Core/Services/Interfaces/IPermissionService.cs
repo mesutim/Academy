@@ -27,5 +27,6 @@ namespace Academy.Core.Services.Interfaces
         void AddRolesToUser(int userId, List<int> roleIds);
 
         public void EditRolesUser(int userId, List<int> rolesId);
+        bool CheckPermission(int permissionId, string userName);
     }
 }

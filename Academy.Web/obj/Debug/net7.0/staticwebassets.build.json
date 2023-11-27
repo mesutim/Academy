@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "B7oVg0YTgta/Hy3cmbYvxm3+HN8HoJgme1zNMHQQyxo=",
+  "Hash": "qz9uiHV0yfA3FnuMVGaNl7K3iHiqs8xvPGVspjwBC3s=",
   "Source": "Academy.Web",
   "BasePath": "_content/Academy.Web",
   "Mode": "Default",
@@ -1173,6 +1173,23 @@
       "OriginalItemSpec": "wwwroot\\CourseFiles\\Demo\\6f68a19c8f7b469ca7ab8d5b1ec52871.mp4"
     },
     {
+      "Identity": "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.Web\\wwwroot\\CourseFiles\\Demo\\71c70b68dc3840999e63eb852409189b.mp4",
+      "SourceId": "Academy.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.Web\\wwwroot\\",
+      "BasePath": "_content/Academy.Web",
+      "RelativePath": "CourseFiles/Demo/71c70b68dc3840999e63eb852409189b.mp4",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\CourseFiles\\Demo\\71c70b68dc3840999e63eb852409189b.mp4"
+    },
+    {
       "Identity": "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.Web\\wwwroot\\CourseFiles\\Demo\\c8375d01b2444b18b845bf1a85637d38.mp4",
       "SourceId": "Academy.Web",
       "SourceType": "Discovered",
@@ -1188,6 +1205,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\CourseFiles\\Demo\\c8375d01b2444b18b845bf1a85637d38.mp4"
+    },
+    {
+      "Identity": "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.Web\\wwwroot\\CourseFiles\\Image\\24a9b2c6a9e34260bebc7ee2f8e0d304.jpg",
+      "SourceId": "Academy.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.Web\\wwwroot\\",
+      "BasePath": "_content/Academy.Web",
+      "RelativePath": "CourseFiles/Image/24a9b2c6a9e34260bebc7ee2f8e0d304.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\CourseFiles\\Image\\24a9b2c6a9e34260bebc7ee2f8e0d304.jpg"
     },
     {
       "Identity": "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.Web\\wwwroot\\CourseFiles\\Image\\329c4bbf542f45c0aa8232fc9aad7a39.jpg",
@@ -1256,6 +1290,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\CourseFiles\\Image\\no-photo.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.Web\\wwwroot\\CourseFiles\\Thumb\\24a9b2c6a9e34260bebc7ee2f8e0d304.jpg",
+      "SourceId": "Academy.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.Web\\wwwroot\\",
+      "BasePath": "_content/Academy.Web",
+      "RelativePath": "CourseFiles/Thumb/24a9b2c6a9e34260bebc7ee2f8e0d304.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\CourseFiles\\Thumb\\24a9b2c6a9e34260bebc7ee2f8e0d304.jpg"
     },
     {
       "Identity": "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.Web\\wwwroot\\CourseFiles\\Thumb\\329c4bbf542f45c0aa8232fc9aad7a39.jpg",
@@ -2038,40 +2089,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\slide.jpg"
-    },
-    {
-      "Identity": "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.Web\\wwwroot\\images\\UserAvatar\\16a96cecbc5c4dd3b2d74fab17f33706.jpg",
-      "SourceId": "Academy.Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.Web\\wwwroot\\",
-      "BasePath": "_content/Academy.Web",
-      "RelativePath": "images/UserAvatar/16a96cecbc5c4dd3b2d74fab17f33706.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\UserAvatar\\16a96cecbc5c4dd3b2d74fab17f33706.jpg"
-    },
-    {
-      "Identity": "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.Web\\wwwroot\\images\\UserAvatar\\ab367e4bb5dd4527aec7411434edea06.jpg",
-      "SourceId": "Academy.Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.Web\\wwwroot\\",
-      "BasePath": "_content/Academy.Web",
-      "RelativePath": "images/UserAvatar/ab367e4bb5dd4527aec7411434edea06.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\UserAvatar\\ab367e4bb5dd4527aec7411434edea06.jpg"
     },
     {
       "Identity": "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.Web\\wwwroot\\images\\UserAvatar\\DefaultAvatar.jpg",

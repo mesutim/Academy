@@ -528,3 +528,7 @@ F:\git.ir\Javad AliBabaie\Resume Project\Academy\Academy.Web\obj\Debug\net7.0\Ac
 F:\git.ir\Javad AliBabaie\Resume Project\Academy\Academy.Web\obj\Debug\net7.0\ref\Academy.Web.dll
 C:\Users\Mesud\source\repos\Academy\Academy.Web\bin\Debug\net7.0\SharpCompress.dll
 C:\Users\Mesud\source\repos\Academy\Academy.Web\bin\Debug\net7.0\ZstdSharp.dll
+C:\Users\Mesud\source\repos\Academy\Academy.Web\bin\Debug\net7.0\AngleSharp.dll
+C:\Users\Mesud\source\repos\Academy\Academy.Web\bin\Debug\net7.0\AngleSharp.Css.dll
+C:\Users\Mesud\source\repos\Academy\Academy.Web\bin\Debug\net7.0\HtmlSanitizer.dll
+C:\Users\Mesud\source\repos\Academy\Academy.Web\bin\Debug\net7.0\System.Collections.Immutable.dll

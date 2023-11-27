@@ -99,5 +99,24 @@ namespace Academy.Core.Services
             //Add New Roles
             AddRolesToUser(userId, rolesId);
         }
+        public bool CheckPermission(int permissionId, string userName)
+        {
+            int userId = _context.Users.Single(u => u.UserName == userName).UserId;
+            List<int> UserRoles = _context.UserRoleMap
+                .Where(r => r.UserId == userId)
+                .Select(r => r.RoleId).ToList();
+            if (!UserRoles.Any())
+            {
+                return false;
+            }
+
+            List<int> RolesPermission = _context.RolePermissionMap
+                .Where(p => p.PermissionId == permissionId)
+                .Select(p => p.RoleId).ToList();
+
+            return RolesPermission.Any(p => UserRoles.Contains(p));
+            //UserRoles.Where(r=)
+
+        }
     }
 }

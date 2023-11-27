@@ -269,8 +269,16 @@
       "PackagePath": "staticwebassets\\CourseFiles\\Demo\\6f68a19c8f7b469ca7ab8d5b1ec52871.mp4"
     },
     {
+      "Id": "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.Web\\wwwroot\\CourseFiles\\Demo\\71c70b68dc3840999e63eb852409189b.mp4",
+      "PackagePath": "staticwebassets\\CourseFiles\\Demo\\71c70b68dc3840999e63eb852409189b.mp4"
+    },
+    {
       "Id": "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.Web\\wwwroot\\CourseFiles\\Demo\\c8375d01b2444b18b845bf1a85637d38.mp4",
       "PackagePath": "staticwebassets\\CourseFiles\\Demo\\c8375d01b2444b18b845bf1a85637d38.mp4"
+    },
+    {
+      "Id": "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.Web\\wwwroot\\CourseFiles\\Image\\24a9b2c6a9e34260bebc7ee2f8e0d304.jpg",
+      "PackagePath": "staticwebassets\\CourseFiles\\Image\\24a9b2c6a9e34260bebc7ee2f8e0d304.jpg"
     },
     {
       "Id": "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.Web\\wwwroot\\CourseFiles\\Image\\329c4bbf542f45c0aa8232fc9aad7a39.jpg",
@@ -287,6 +295,10 @@
     {
       "Id": "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.Web\\wwwroot\\CourseFiles\\Image\\no-photo.jpg",
       "PackagePath": "staticwebassets\\CourseFiles\\Image\\no-photo.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.Web\\wwwroot\\CourseFiles\\Thumb\\24a9b2c6a9e34260bebc7ee2f8e0d304.jpg",
+      "PackagePath": "staticwebassets\\CourseFiles\\Thumb\\24a9b2c6a9e34260bebc7ee2f8e0d304.jpg"
     },
     {
       "Id": "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.Web\\wwwroot\\CourseFiles\\Thumb\\329c4bbf542f45c0aa8232fc9aad7a39.jpg",
@@ -381,16 +393,8 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.Web\\wwwroot\\images\\UserAvatar\\16a96cecbc5c4dd3b2d74fab17f33706.jpg",
-      "PackagePath": "staticwebassets\\images\\UserAvatar\\16a96cecbc5c4dd3b2d74fab17f33706.jpg"
-    },
-    {
       "Id": "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.Web\\wwwroot\\images\\UserAvatar\\DefaultAvatar.jpg",
       "PackagePath": "staticwebassets\\images\\UserAvatar\\DefaultAvatar.jpg"
-    },
-    {
-      "Id": "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.Web\\wwwroot\\images\\UserAvatar\\ab367e4bb5dd4527aec7411434edea06.jpg",
-      "PackagePath": "staticwebassets\\images\\UserAvatar\\ab367e4bb5dd4527aec7411434edea06.jpg"
     },
     {
       "Id": "C:\\Users\\Mesud\\source\\repos\\Academy\\Academy.Web\\wwwroot\\images\\captcha.jpg",

@@ -1,6 +1,7 @@
 ﻿using Academy.Model.Models.IdentityModels;
 using Academy.Model.Models.TransactionModels;
 using Academy.Model.ViewModels;
+using Microsoft.EntityFrameworkCore;
 
 namespace Academy.Core.Services.Interfaces
 {
@@ -26,5 +27,15 @@ namespace Academy.Core.Services.Interfaces
         int GetUserIdByUserName(string userName);
         int BalanceUserTransaction(string username);
         int AddTransaction(Transaction transaction);
+        InformationUserViewModel GetUserInformation(string username);
+        User GetUserByUserName(string username);
+        int BalanceUserWallet(string username);
+        EditProfileViewModel GetDataForEditProfileUser(string username);
+        void EditProfile(string username, EditProfileViewModel profile);
+        bool CompareOldPassword(string oldPassword, string username);
+        void ChangeUserPassword(string userName, string newPassword);
+        public int ChargeWallet(string username, int amount, string description, bool isPay = false);
+        SideBarUserPanelViewModel GetSideBarUserPanelData(string username);
+        List<TransactionViewModel> GetWalletUser(string userName);
     }
 }

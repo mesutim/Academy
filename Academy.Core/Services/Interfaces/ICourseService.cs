@@ -49,5 +49,10 @@ namespace Academy.Core.Services.Interfaces
         bool IsFree(int courseId);
         Tuple<int, int> GetCourseVotes(int courseId);
         void AddsVote(int userId, int courseId, bool vote);
+        List<Course> GetAllMasterCourses(string userName);
+        List<Course> GetAllCashCoursesForUser(int userId);
+        List<Course> GetAllFreeCoursesForUser(string userName);
+        List<CourseEpisode> GetCourseEpisodesByCourseId(int courseId);
+        bool AddEpisode(AddEpisodeViewModel episodeViewModel, string userName);
     }
 }

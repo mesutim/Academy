@@ -247,5 +247,123 @@ namespace Academy.Core.Services
             _context.SaveChanges();
             return transaction.TransactionId;
         }
+        public InformationUserViewModel GetUserInformation(string username)
+        {
+            var user = GetUserByUserName(username);
+            InformationUserViewModel information = new InformationUserViewModel();
+            information.UserName = user.UserName;
+            information.Email = user.Email;
+            information.RegisterDate = user.RegisterDate;
+            information.Wallet = BalanceUserWallet(username);
+
+            return information;
+
+        }
+        public User GetUserByUserName(string username)
+        {
+            return _context.Users.SingleOrDefault(u => u.UserName == username);
+        }
+        public int BalanceUserWallet(string username)
+        {
+            int userId = GetUserIdByUserName(username);
+
+            var enter = _context.Transactions
+                .Where(t => t.UserId == userId && t.TypeId == 1 && t.IsPay)
+                .Select(t => t.Amount).ToList();
+
+            var exit = _context.Transactions
+                .Where(t => t.UserId == userId && t.TypeId == 2 && t.IsPay)
+                .Select(t => t.Amount).ToList();
+
+            return (enter.Sum() - exit.Sum());
+        }
+        public EditProfileViewModel GetDataForEditProfileUser(string username)
+        {
+            return _context.Users.Where(u => u.UserName == username).Select(u => new EditProfileViewModel()
+            {
+                AvatarName = u.UserAvatar,
+                Email = u.Email,
+                UserName = u.UserName
+
+            }).Single();
+        }
+        public void EditProfile(string username, EditProfileViewModel profile)
+        {
+            if (profile.UserAvatar != null)
+            {
+                string imagePath = "";
+                if (profile.AvatarName != "DefaultAvatar.jpg")
+                {
+                    imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/UserAvatar", profile.AvatarName);
+                    if (File.Exists(imagePath))
+                    {
+                        File.Delete(imagePath);
+                    }
+                }
+                profile.AvatarName = NameGenerator.GenerateUniqCode() + Path.GetExtension(profile.UserAvatar.FileName);
+                imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/UserAvatar", profile.AvatarName);
+                using (var stream = new FileStream(imagePath, FileMode.Create))
+                {
+                    profile.UserAvatar.CopyTo(stream);
+                }
+            }
+
+            var user = GetUserByUserName(username);
+            user.UserName = profile.UserName;
+            user.Email = profile.Email;
+            user.UserAvatar = profile.AvatarName;
+
+            UpdateUser(user);
+
+        }
+        public bool CompareOldPassword(string oldPassword, string username)
+        {
+            string hashOldPassword = PasswordHelper.EncodePasswordMd5(oldPassword);
+            return _context.Users.Any(u => u.UserName == username && u.Password == hashOldPassword);
+        }
+        public void ChangeUserPassword(string userName, string newPassword)
+        {
+            var user = GetUserByUserName(userName);
+            user.Password = PasswordHelper.EncodePasswordMd5(newPassword);
+            UpdateUser(user);
+        }
+        public int ChargeWallet(string username, int amount, string description, bool isPay = false)
+        {
+            Transaction transaction = new Transaction()
+            {
+                Amount = amount,
+                Description = description,
+                CreateDate = DateTime.Now,
+                IsPay = isPay,
+                TypeId = 1,
+                UserId = GetUserIdByUserName(username)
+
+            };
+            return AddTransaction(transaction);
+        }
+        public SideBarUserPanelViewModel GetSideBarUserPanelData(string username)
+        {
+            return _context.Users.Where(u => u.UserName == username).Select(u => new SideBarUserPanelViewModel()
+            {
+                UserName = u.UserName,
+                ImageName = u.UserAvatar,
+                RegisterDate = u.RegisterDate
+            }).Single();
+        }
+        public List<TransactionViewModel> GetWalletUser(string userName)
+        {
+            int userId = GetUserIdByUserName(userName);
+            return _context.Transactions
+                .Where(w => w.IsPay && w.UserId == userId)
+                .Select(w => new TransactionViewModel()
+                {
+                    Amount = w.Amount,
+                    DateTime = w.CreateDate,
+                    Description = w.Description,
+                    Type = w.TypeId
+
+                }).ToList();
+
+        }
     }
 }
